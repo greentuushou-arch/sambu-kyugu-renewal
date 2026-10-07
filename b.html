@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>弓具の通販 山武弓具店（さんぶきゅうぐてん）｜トップページ リニューアル案 B</title>
+<!--
+  山武弓具店 トップページ リニューアル案 B
+  ・A案（index.html）＝生成り×墨×朱・明朝の格調タイプ
+  ・B案（このファイル）＝白×藍・ゴシックで明るく、商品にすぐたどり着けるタイプ
+  ・構成要素（お知らせ枠・検索・カテゴリー等）はA案と共通。ショップサーブへの載せ方も同じ
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1b1f27;
+  --ink-soft:#4b5260;
+  --ai:#22395c;
+  --ai-deep:#172843;
+  --ai-pale:#eef2f7;
+  --gray:#f5f5f3;
+  --line:#e2e4e8;
+  --shu:#b3241c;
+  --head:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+  --sans:"Noto Sans JP",sans-serif;
+  --num:"Jost","Noto Sans JP",sans-serif;
+  --wrap:1160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-size:17px;line-height:1.85;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
+.pc{display:inline}.sp{display:none}
+
+/* ---------- お知らせ帯 ---------- */
+.notice{background:var(--ai);color:#e6ecf5;font-size:14px;letter-spacing:.04em}
+.notice .wrap{display:flex;justify-content:center;gap:40px;padding-top:9px;padding-bottom:9px}
+.notice b{color:#fff;font-weight:700}
+.notice a{text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- ヘッダー（検索を主役に） ---------- */
+.header{background:#fff;border-bottom:1px solid var(--line)}
+.header__in{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:40px;height:92px}
+.header__logo img{height:70px;width:auto}
+.header__search{display:flex;max-width:560px;width:100%;justify-self:center;border:2px solid var(--ai);border-radius:999px;overflow:hidden}
+.header__search input{flex:1;border:0;font:inherit;font-size:16px;padding:11px 22px;min-width:0;background:#fff}
+.header__search button{border:0;background:var(--ai);color:#fff;font:inherit;font-size:15px;font-weight:700;padding:0 26px;cursor:pointer}
+.header__util{display:flex;gap:8px;align-items:center}
+.header__util a{display:flex;flex-direction:column;align-items:center;font-size:12px;gap:2px;padding:6px 10px;border-radius:6px}
+.header__util a:hover{background:var(--ai-pale)}
+.header__util svg{width:26px;height:26px}
+.header__cart{position:relative}
+.menu-btn{display:none}
+.gnav{background:#fff;border-bottom:1px solid var(--line)}
+.gnav ul{display:flex;justify-content:space-between}
+.gnav a{display:block;padding:14px 6px;font-size:15px;font-weight:700;letter-spacing:.04em;border-bottom:3px solid transparent;transition:border-color .2s,color .2s}
+.gnav a:hover{color:var(--ai);border-bottom-color:var(--ai)}
+
+/* ---------- 臨時のお知らせ（休業・配送遅延） ---------- */
+.alert[hidden]{display:none}
+.alert{background:#fbeceb;color:var(--ink);border-bottom:1px solid #f0cfcc}
+.alert__in{display:flex;align-items:center;gap:24px;padding-top:16px;padding-bottom:16px}
+.alert__label{display:flex;align-items:center;gap:10px;flex:none;width:250px;font-family:var(--head);font-size:18px;font-weight:700;color:var(--shu);white-space:nowrap}
+.alert__label svg{width:24px;height:24px;flex:none}
+.alert__text{flex:1;font-size:16px;line-height:1.7}
+.alert__text b{color:var(--shu)}
+.alert__more{flex:none;font-size:15px;font-weight:700;color:#fff;background:var(--shu);padding:8px 20px;border-radius:999px;white-space:nowrap}
+.alert--delay{background:var(--ai-pale);border-bottom-color:#d5deea}
+.alert--delay .alert__label,.alert--delay .alert__text b{color:var(--ai)}
+.alert--delay .alert__more{background:var(--ai)}
+.alert--image{background:var(--gray)}
+.alert--image a{display:block;max-width:var(--wrap);margin:0 auto}
+
+/* ---------- FV：矢が画面を横切る ---------- */
+.fv{position:relative;overflow:hidden;background:#fff;padding:72px 0 64px}
+.fv__lead{font-family:var(--num);font-size:14px;font-weight:500;letter-spacing:.24em;color:var(--ai)}
+.fv__lead span{font-family:var(--sans);letter-spacing:.12em;color:var(--ink-soft);margin-left:14px}
+.fv__title{font-family:var(--head);font-weight:900;font-size:80px;line-height:1.25;letter-spacing:.02em;margin-top:18px}
+.fv__title em{font-style:normal;color:var(--ai)}
+.fv__band{position:relative;height:200px;margin:-56px 0 8px}
+.fv__fly{position:absolute;inset:0;mix-blend-mode:multiply;animation:fly 1.1s cubic-bezier(.15,.75,.25,1) .3s both}
+/* 写真は筈（羽根側）が右上・矢尻側が左下。213°回して矢尻を右へ向け、右端から画面の外へ抜けさせる */
+.fv__fly img{position:absolute;left:44vw;top:50%;width:54vw;max-width:none;transform:translateY(-50%) rotate(213.2deg)}
+.fv .wrap{position:relative;z-index:2}
+@keyframes fly{from{transform:translateX(-40vw);opacity:0}50%{opacity:1}to{transform:none;opacity:1}}
+.fv__foot{display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
+.fv__text{font-size:18px;line-height:2;color:var(--ink-soft)}
+.fv__btns{display:flex;gap:12px;flex:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-size:16px;font-weight:700;letter-spacing:.04em;padding:16px 30px;border-radius:999px;transition:background .2s,color .2s}
+.btn svg{width:16px;height:16px;transition:transform .2s}
+.btn:hover svg{transform:translateX(4px)}
+.btn--ai{background:var(--ai);color:#fff}
+.btn--ai:hover{background:var(--ai-deep)}
+.btn--line{border:2px solid var(--ai);color:var(--ai);padding:14px 28px}
+.btn--line:hover{background:var(--ai);color:#fff}
+
+/* ---------- 安心帯 ---------- */
+.promise{background:var(--ai);color:#fff}
+.promise ul{display:grid;grid-template-columns:repeat(4,1fr)}
+.promise li{display:flex;flex-direction:column;gap:6px;padding:24px 22px;border-left:1px solid rgba(255,255,255,.18)}
+.promise li:first-child{border-left:0;padding-left:0}
+.promise .num{font-family:var(--num);font-size:38px;font-weight:600;line-height:1;white-space:nowrap}
+.promise .num small{font-family:var(--sans);font-size:16px;font-weight:700;margin-left:2px}
+.promise .num--jp{font-family:var(--head);font-size:30px;font-weight:900}
+.promise p{font-size:14px;line-height:1.55;color:#d9e1ec}
+
+/* ---------- セクション共通 ---------- */
+.sec{padding:100px 0}
+.sec--gray{background:var(--gray)}
+.sec__head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:44px}
+.sec__en{font-family:var(--num);font-size:14px;font-weight:500;letter-spacing:.24em;color:var(--ai)}
+.sec__title{font-family:var(--head);font-weight:900;font-size:40px;line-height:1.4;letter-spacing:.02em;margin-top:6px}
+.sec__desc{font-size:16px;color:var(--ink-soft);margin-top:8px}
+.more{font-size:15px;font-weight:700;color:var(--ai);display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.more svg{width:16px;height:16px}
+
+/* ---------- カテゴリー（タイル） ---------- */
+.cat__grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.cat__grid a{display:block;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:border-color .2s,transform .2s}
+.cat__grid a:hover{border-color:var(--ai);transform:translateY(-3px)}
+.cat__grid .img{aspect-ratio:1;overflow:hidden}
+.cat__grid img{width:100%;height:100%;object-fit:cover}
+.cat__grid span{display:block;padding:12px 8px 14px;text-align:center;font-family:var(--head);font-weight:700;font-size:17px;border-top:1px solid var(--line)}
+
+/* ---------- 目的から選ぶ ---------- */
+.purpose__grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.purpose__item{display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px}
+.purpose__img{aspect-ratio:1;border-radius:8px;overflow:hidden;background:var(--gray)}
+.purpose__img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.purpose__item:hover .purpose__img img{transform:scale(1.04)}
+.purpose__for{font-size:14px;font-weight:700;color:var(--ai);letter-spacing:.06em}
+.purpose__item h3{font-family:var(--head);font-size:26px;font-weight:900;line-height:1.45;margin-top:2px}
+.purpose__item p{font-size:15px;line-height:1.8;color:var(--ink-soft);margin-top:8px}
+.purpose__links{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.purpose__links a{font-size:14px;font-weight:700;color:var(--ai);background:var(--ai-pale);padding:5px 14px;border-radius:999px;transition:background .2s,color .2s}
+.purpose__links a:hover{background:var(--ai);color:#fff}
+
+/* ---------- オーダー矢 ---------- */
+.order__in{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.order__main{justify-self:center;max-width:440px;width:100%}
+.order__main img{border-radius:12px;width:100%}
+.order__title{font-family:var(--head);font-weight:900;font-size:52px;line-height:1.35;margin-top:8px}
+.order__text{margin-top:20px;color:var(--ink-soft)}
+.order__list{margin-top:32px;border-top:1px solid var(--line)}
+.order__list a{display:grid;grid-template-columns:96px 1fr auto;gap:20px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.order__list img{border-radius:8px}
+.order__list h3{font-family:var(--head);font-size:20px;font-weight:700;line-height:1.5}
+.order__list p{font-size:14px;color:var(--ink-soft);line-height:1.6}
+.order__list svg{width:20px;height:20px;color:var(--ai);transition:transform .2s}
+.order__list a:hover svg{transform:translateX(4px)}
+
+/* ---------- おすすめ商品 ---------- */
+.items{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 24px}
+.items a{display:block}
+.items .img{aspect-ratio:1;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.items .img img{width:100%;height:100%;object-fit:contain;transition:transform .4s}
+.items a:hover .img img{transform:scale(1.04)}
+.items .code{font-family:var(--num);font-size:13px;color:var(--ink-soft);letter-spacing:.06em;margin-top:12px;display:flex;gap:8px;align-items:center}
+.items .tag{font-family:var(--sans);font-size:12px;color:var(--ai);background:var(--ai-pale);padding:0 8px;line-height:1.8;border-radius:999px}
+.items h3{font-size:16px;font-weight:500;line-height:1.6;margin-top:4px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.items .price{font-family:var(--num);font-size:24px;font-weight:600;margin-top:6px;color:var(--shu)}
+.items .price small{font-family:var(--sans);font-size:13px;margin-left:4px;color:var(--ink-soft);font-weight:400}
+
+/* ---------- 大会出店 ---------- */
+.event__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.event__grid li{background:#fff;border-radius:12px;padding:28px 28px 30px;border-top:4px solid var(--ai)}
+.event__date{font-family:var(--num);font-size:52px;font-weight:600;line-height:1;color:var(--ai)}
+.event__date small{font-family:var(--sans);font-size:15px;font-weight:700;margin-left:8px;color:var(--ink)}
+.event__name{font-family:var(--head);font-size:20px;font-weight:700;line-height:1.5;margin-top:16px}
+.event__place{font-size:14px;color:var(--ink-soft);margin-top:4px}
+.event__note{margin-top:20px;font-size:14px;color:var(--ink-soft)}
+
+/* ---------- 読みもの ---------- */
+.read__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.read__grid a{display:flex;flex-direction:column;gap:8px;padding:26px 24px 28px;border:1px solid var(--line);border-radius:12px;transition:border-color .2s}
+.read__grid a:hover{border-color:var(--ai)}
+.read__grid .kind{font-size:13px;font-weight:700;color:var(--ai);letter-spacing:.08em}
+.read__grid h3{font-family:var(--head);font-size:22px;font-weight:900;line-height:1.45}
+.read__grid p{font-size:15px;color:var(--ink-soft);line-height:1.75}
+
+/* ---------- 店舗・お問い合わせ ---------- */
+.shop{background:var(--ai-pale)}
+.shop__in{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.shop__box{background:#fff;border-radius:14px;padding:44px 44px 48px}
+.shop__table{margin-top:24px}
+.shop__table div{display:grid;grid-template-columns:100px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:16px}
+.shop__table div:last-child{border-bottom:0}
+.shop__table dt{font-weight:700;color:var(--ai)}
+.shop__tel{margin-top:24px}
+.shop__tel .label{font-size:15px;color:var(--ink-soft)}
+.shop__tel .num{font-family:var(--num);font-size:54px;font-weight:600;letter-spacing:.01em;line-height:1.2;display:block;color:var(--ai)}
+.shop__sub{margin-top:16px;display:grid;gap:6px;font-size:16px}
+.shop__sub span{display:inline-block;width:64px;font-weight:700}
+.shop__box .btn{margin-top:28px;width:100%}
+
+/* ---------- フッター ---------- */
+.footer{background:var(--ai-deep);color:#c9d3e1;padding:60px 0 30px;font-size:15px}
+.footer__in{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.footer__copy{font-family:var(--head);font-size:24px;font-weight:700;color:#fff}
+.footer__links{display:grid;grid-template-columns:repeat(3,auto);gap:10px 40px}
+.footer__links a:hover{color:#fff}
+.footer small{display:block;margin-top:44px;font-size:13px;color:#8796ad}
+
+/* 打合せ用：A案・B案の切り替え（本番では削除） */
+.switch{position:fixed;left:16px;bottom:16px;z-index:60;display:flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px;font-size:14px;font-weight:700;box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.switch a{padding:6px 16px;border-radius:999px}
+.switch .is-current{background:var(--ai);color:#fff}
+
+/* ================= スマホ ================= */
+@media (max-width:767px){
+  body{font-size:16px}
+  .wrap{padding:0 20px}
+  .pc{display:none}.sp{display:inline}
+
+  .notice{font-size:13px}
+  .notice .wrap{flex-direction:column;gap:0;text-align:center;padding-top:6px;padding-bottom:6px}
+  .notice .wrap > span:last-child{display:none}
+
+  #top{position:sticky;top:0;z-index:50}
+  .header__in{grid-template-columns:auto 1fr;height:64px;gap:12px}
+  .header__logo img{height:48px}
+  .header__search{display:none}
+  .header__util{justify-self:end;gap:0}
+  .header__util .txt{display:none}
+  .header__util a{padding:8px}
+  .menu-btn{display:flex;flex-direction:column;justify-content:center;gap:6px;width:44px;height:44px;border:0;background:none;cursor:pointer;padding:10px}
+  .menu-btn i{display:block;height:2px;background:var(--ink);transition:transform .25s,opacity .25s}
+  .is-open .menu-btn i:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .is-open .menu-btn i:nth-child(2){opacity:0}
+  .is-open .menu-btn i:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+  .sp-search{display:flex;margin:0 20px 12px;border:2px solid var(--ai);border-radius:999px;overflow:hidden}
+  .sp-search input{flex:1;border:0;font:inherit;font-size:16px;padding:9px 16px;min-width:0}
+  .sp-search button{border:0;background:var(--ai);color:#fff;font:inherit;font-weight:700;padding:0 18px}
+
+  .gnav{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;overflow-y:auto;z-index:49;border:0}
+  .is-open .gnav{display:block}
+  .gnav .wrap{padding:0}
+  .gnav ul{display:grid;grid-template-columns:1fr 1fr}
+  .gnav li{border-top:1px solid var(--line)}
+  .gnav li:nth-child(odd){border-right:1px solid var(--line)}
+  .gnav a{padding:16px 20px;font-size:16px;border-bottom:0}
+
+  .alert__in{flex-wrap:wrap;gap:6px 16px;padding-top:14px;padding-bottom:16px}
+  .alert__label{width:100%;font-size:17px}
+  .alert__text{flex:1 1 100%;font-size:15px}
+  .alert__more{margin-top:4px}
+
+  .fv{padding:40px 0 48px}
+  .fv__lead span{display:block;margin:4px 0 0}
+  .fv__title{font-size:44px;line-height:1.3;margin-top:14px}
+  .fv__band{height:170px;margin:0 0 4px}
+  .fv__fly img{left:14vw;width:104vw}
+  .fv__foot{flex-direction:column;align-items:stretch;gap:24px}
+  .fv__text{font-size:16px}
+  .fv__btns{flex-direction:column}
+
+  .promise ul{grid-template-columns:1fr 1fr}
+  .promise li{flex-direction:column;align-items:flex-start;gap:6px;padding:20px 14px;border-left:0}
+  .promise li:nth-child(odd){border-right:1px solid rgba(255,255,255,.18);padding-left:0}
+  .promise li:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.18)}
+  .promise .num{font-size:30px}
+  .promise .num--jp{font-size:24px}
+  .promise p{font-size:13px}
+
+  .sec{padding:72px 0}
+  .sec__head{flex-direction:column;align-items:flex-start;margin-bottom:28px;gap:12px}
+  .sec__title{font-size:30px}
+
+  .cat__grid{grid-template-columns:repeat(3,1fr);gap:10px}
+  .cat__grid span{font-size:14px;padding:8px 4px 10px}
+
+  .purpose__grid{grid-template-columns:1fr;gap:14px}
+  .purpose__item{grid-template-columns:104px 1fr;gap:16px;padding:14px;align-items:start}
+  .purpose__item h3{font-size:20px}
+  .purpose__item p{font-size:14px}
+  .purpose__links{grid-column:1 / -1;margin-top:4px}
+
+  .order__in{grid-template-columns:1fr;gap:32px}
+  .order__title{font-size:34px}
+  .order__list a{grid-template-columns:72px 1fr auto;gap:14px}
+  .order__list h3{font-size:17px}
+  .order__list p{font-size:13px}
+
+  .items{grid-template-columns:1fr 1fr;gap:32px 14px}
+  .items h3{font-size:15px}
+  .items .price{font-size:20px}
+
+  .event__grid{grid-template-columns:1fr;gap:12px}
+  .event__grid li{padding:20px 22px 22px;display:grid;grid-template-columns:auto 1fr;gap:4px 20px;align-items:center}
+  .event__date{font-size:38px;grid-row:span 2}
+  .event__date small{display:block;margin:6px 0 0;font-size:13px}
+  .event__name{font-size:17px;margin-top:0}
+
+  .read__grid{grid-template-columns:1fr 1fr;gap:12px}
+  .read__grid a{padding:18px 16px 20px}
+  .read__grid h3{font-size:18px}
+  .read__grid p{font-size:13px}
+
+  .shop__in{grid-template-columns:1fr}
+  .shop__box{padding:28px 22px 32px}
+  .shop__table div{grid-template-columns:80px 1fr;font-size:15px}
+  .shop__tel .num{font-size:40px}
+
+  .footer__links{grid-template-columns:1fr 1fr}
+  .switch{left:auto;right:12px;bottom:12px;font-size:13px}
+}
+@media (min-width:768px){.sp-search{display:none}}
+@media (prefers-reduced-motion:reduce){
+  .fv__fly{animation:none}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="notice">
+  <div class="wrap">
+    <span><b>8,800円以上で送料無料</b>（弓・矢筒・巻藁など大型商品を除く）　<a href="https://www.sambu.jp/hpgen/HPB/shop/shoppinguide.html">詳しく</a></span>
+    <span>通信販売 10:00〜17:00（水・日・祝 定休）</span>
+  </div>
+</div>
+
+<div id="top">
+<header class="header">
+  <div class="wrap header__in">
+    <a class="header__logo" href="https://www.sambu.jp/"><img src="https://www.sambu.jp/img/logo.jpg" alt="山武弓具店 Sambu Kyugu Equipment" width="207" height="142"></a>
+    <form class="header__search" action="https://www.sambu.jp/SHOP/list.php" method="get">
+      <input type="search" name="Search" placeholder="商品名・商品番号で探す（例：煌、C-160）" aria-label="商品を検索">
+      <button type="submit">検索</button>
+    </form>
+    <div class="header__util">
+      <a href="https://www.sambu.jp/CART/login.php"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><span class="txt">ログイン</span></a>
+      <a class="header__cart" href="https://www.sambu.jp/CART/cart.php"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h2l2.4 11h11.2L21 7H6.3"/><circle cx="9" cy="19.5" r="1.3"/><circle cx="17" cy="19.5" r="1.3"/></svg><span class="txt">カート</span></a>
+      <button class="menu-btn" type="button" aria-label="メニュー" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+  <form class="sp-search" action="https://www.sambu.jp/SHOP/list.php" method="get">
+    <input type="search" name="Search" placeholder="商品名・商品番号で探す" aria-label="商品を検索">
+    <button type="submit">検索</button>
+  </form>
+</header>
+<nav class="gnav" aria-label="カテゴリー">
+  <div class="wrap">
+    <ul>
+      <li><a href="https://www.sambu.jp/SHOP/201260/list.html">弓</a></li>
+      <li><a href="https://www.sambu.jp/SHOP/1142981/list.html">矢</a></li>
+      <li><a href="https://www.sambu.jp/SHOP/201254/list.html">ユガケ</a></li>
+      <li><a href="https://www.sambu.jp/SHOP/199569/list.html">弦</a></li>
+      <li><a href="https://www.sambu.jp/SHOP/201252/list.html">弓付属品</a></li>
+      <li><a href="https://www.sambu.jp/SHOP/201249/list.html">矢筒</a></li>
+      <li><a href="https://www.sambu.jp/SHOP/201253/list.html">弓道着</a></li>
+      <li><a href="https://www.sambu.jp/SHOP/201250/list.html">道場備品</a></li>
+      <li><a href="https://www.sambu.jp/SHOP/1105237/list.html">書籍・景品</a></li>
+      <li><a href="https://www.sambu.jp/SHOP/928965/list.html">初心者セット</a></li>
+      <li><a href="https://www.sambu.jp/SHOP/1176195/list.html">特価品</a></li>
+      <li><a href="https://www.sambu.jp/FORM/contact.cgi">修理のご相談</a></li>
+    </ul>
+  </div>
+</nav>
+</div>
+
+<!-- 臨時のお知らせ（使い方はA案 index.html と同じ：hidden で出し入れ／data-until の翌日から自動で非表示） -->
+<div class="alerts">
+  <aside class="alert" data-until="2027-01-05" aria-label="重要なお知らせ">
+    <div class="wrap alert__in">
+      <p class="alert__label"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 6.5v7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.3" fill="currentColor"/></svg>年末年始休業のお知らせ</p>
+      <p class="alert__text"><b>12月28日（月）〜1月5日（火）</b>は休業いたします。休業中のご注文は、1月7日（木）より順次発送いたします。</p>
+      <a class="alert__more" href="https://www.sambu.jp/hpgen/HPB/entries/31.html">詳しく見る</a>
+    </div>
+  </aside>
+  <aside class="alert alert--delay" data-until="2026-10-10" aria-label="配送のお知らせ" hidden>
+    <div class="wrap alert__in">
+      <p class="alert__label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6h12v10H2zM14 10h4.5L22 13.5V16h-8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="6" cy="17.5" r="1.8" fill="currentColor"/><circle cx="18" cy="17.5" r="1.8" fill="currentColor"/></svg>配送遅延のお知らせ</p>
+      <p class="alert__text">台風の影響により、<b>九州・沖縄方面</b>へのお届けに遅れが生じております。ご迷惑をおかけし申し訳ございません。</p>
+      <a class="alert__more" href="https://www.sambu.jp/hpgen/HPB/entries/26.html">詳しく見る</a>
+    </div>
+  </aside>
+</div>
+<script>
+(function(){
+  var today=new Date(); today.setHours(0,0,0,0);
+  var list=document.querySelectorAll('.alert[data-until]');
+  for(var i=0;i<list.length;i++){
+    var p=list[i].getAttribute('data-until').split('-');
+    if(today>new Date(+p[0],+p[1]-1,+p[2])){list[i].hidden=true}
+  }
+})();
+</script>
+
+<main>
+
+<!-- FV -->
+<section class="fv">
+  <div class="wrap">
+    <p class="fv__lead">SAMBU KYUGU<span>千葉・山武の弓具専門店</span></p>
+    <h1 class="fv__title">弓を引く人の<br><em>いちばん近く</em>に</h1>
+  </div>
+  <div class="fv__band" aria-hidden="true">
+    <div class="fv__fly"><img src="https://www.sambu.jp/pic-labo/D-1661-1.jpg" alt="" width="1500" height="1000"></div>
+  </div>
+  <div class="wrap fv__foot">
+    <p class="fv__text">弓・矢・カケから、<br class="sp">職人仕立てのオーダー矢まで。<br>道具選びのご相談も、お気軽にどうぞ。</p>
+    <div class="fv__btns">
+      <a class="btn btn--ai" href="#cat">カテゴリーから探す<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+      <a class="btn btn--line" href="#purpose">はじめての方へ</a>
+    </div>
+  </div>
+</section>
+
+<section class="promise" aria-label="当店のサービス">
+  <div class="wrap">
+    <ul>
+      <li><span class="num">14:00</span><p>までのご注文は<br>当日出荷（在庫品）</p></li>
+      <li><span class="num">8,800<small>円</small></span><p>以上のお買い上げで<br>送料無料</p></li>
+      <li><span class="num num--jp">のし対応</span><p>昇段祝い・大会景品の<br>ギフト包装も承ります</p></li>
+      <li><span class="num">100<small>pt</small></span><p>新規会員登録で<br>プレゼント</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- カテゴリー（B案では最初に） -->
+<section class="sec" id="cat">
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <p class="sec__en">CATEGORY</p>
+        <h2 class="sec__title">カテゴリーから探す</h2>
+      </div>
+      <a class="more" href="https://www.sambu.jp/SHOP/list.cgi">すべての商品<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+    </div>
+    <ul class="cat__grid">
+      <li><a href="https://www.sambu.jp/SHOP/201260/list.html"><div class="img"><img src="https://www.sambu.jp/img/cate_yumi.jpg" alt="" loading="lazy"></div><span>弓</span></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/1142981/list.html"><div class="img"><img src="https://www.sambu.jp/img/cate_ya.jpg" alt="" loading="lazy"></div><span>矢</span></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/201254/list.html"><div class="img"><img src="https://www.sambu.jp/img/cate_yukage.jpg" alt="" loading="lazy"></div><span>ユガケ</span></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/199569/list.html"><div class="img"><img src="https://www.sambu.jp/img/cate_tsuru.jpg" alt="" loading="lazy"></div><span>弦</span></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/199569/201243/list.html"><div class="img"><img src="https://www.sambu.jp/img/cate_tsurumaki.jpg" alt="" loading="lazy"></div><span>弦巻</span></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/201252/list.html"><div class="img"><img src="https://www.sambu.jp/img/cate_yumifu.jpg" alt="" loading="lazy"></div><span>弓付属品</span></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/201249/list.html"><div class="img"><img src="https://www.sambu.jp/img/cate_yatutu.jpg" alt="" loading="lazy"></div><span>矢筒</span></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/201253/list.html"><div class="img"><img src="https://www.sambu.jp/img/cate_yumigi.jpg" alt="" loading="lazy"></div><span>弓道着</span></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/201250/list.html"><div class="img"><img src="https://www.sambu.jp/img/cate_bihin.jpg" alt="" loading="lazy"></div><span>道場備品</span></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/1105237/list.html"><div class="img"><img src="https://www.sambu.jp/img/cate_keihin.jpg" alt="" loading="lazy"></div><span>書籍・景品</span></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/1176195/list.html"><div class="img"><img src="https://www.sambu.jp/img/cate_sale.jpg" alt="" loading="lazy"></div><span>特価品</span></a></li>
+      <li><a href="https://www.sambu.jp/FORM/contact.cgi"><div class="img"><img src="https://www.sambu.jp/img/cate_repairs.jpg" alt="" loading="lazy"></div><span>修理</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 目的から選ぶ -->
+<section class="sec sec--gray" id="purpose">
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <p class="sec__en">GUIDE</p>
+        <h2 class="sec__title">目的から選ぶ</h2>
+        <p class="sec__desc">何を選べばいいか迷ったら、ここから。</p>
+      </div>
+    </div>
+    <div class="purpose__grid">
+      <div class="purpose__item">
+        <a class="purpose__img" href="https://www.sambu.jp/SHOP/928965/list.html"><img src="https://www.sambu.jp/img/item_kyudoset.jpg" alt="お得な初心者セット品" loading="lazy"></a>
+        <div>
+          <p class="purpose__for">新入部員・はじめての方</p>
+          <h3>弓道をはじめる</h3>
+          <p>道着・カケ・矢をまとめてそろえられる、お得なセットをご用意しています。</p>
+          <div class="purpose__links"><a href="https://www.sambu.jp/SHOP/928965/list.html">初心者セット</a><a href="https://www.sambu.jp/SHOP/201253/list.html">弓道着</a><a href="https://www.sambu.jp/hpgen/HPB/entries/32.html">よくあるご質問</a></div>
+        </div>
+      </div>
+      <div class="purpose__item">
+        <a class="purpose__img" href="https://www.sambu.jp/SHOP/199569/list.html"><img src="https://www.sambu.jp/img/item_kirameki.jpg" alt="麻弦 煌（きらめき）" loading="lazy"></a>
+        <div>
+          <p class="purpose__for">稽古を続けている方</p>
+          <h3>消耗品を買い替える</h3>
+          <p>弦・握り革・下カケなど。ネコポス対象品は送料もお手頃です。</p>
+          <div class="purpose__links"><a href="https://www.sambu.jp/SHOP/199569/list.html">弦</a><a href="https://www.sambu.jp/SHOP/201254/list.html">ユガケ・下カケ</a><a href="https://www.sambu.jp/SHOP/201252/list.html">握り革</a></div>
+        </div>
+      </div>
+      <div class="purpose__item">
+        <a class="purpose__img" href="https://www.sambu.jp/SHOP/I-015.html"><img src="https://www.sambu.jp/img/item_kogatamakiwara.jpg" alt="小型巻藁" loading="lazy"></a>
+        <div>
+          <p class="purpose__for">道場に行けない日に</p>
+          <h3>自宅で稽古する</h3>
+          <p>持ち運べる小型の巻藁や、射法を確認できるゴム弓。</p>
+          <div class="purpose__links"><a href="https://www.sambu.jp/SHOP/I-015.html">小型巻藁</a><a href="https://www.sambu.jp/SHOP/keyword/gomuyumi">ゴム弓</a></div>
+        </div>
+      </div>
+      <div class="purpose__item">
+        <a class="purpose__img" href="https://www.sambu.jp/SHOP/wp-cha.html"><img src="https://www.sambu.jp/img/service_gift.jpg" alt="有料ギフトラッピング" loading="lazy"></a>
+        <div>
+          <p class="purpose__for">昇段祝い・大会景品に</p>
+          <h3>贈りものを選ぶ</h3>
+          <p>のし・ギフト包装に対応。大会景品のまとめてのご注文もご相談ください。</p>
+          <div class="purpose__links"><a href="https://www.sambu.jp/SHOP/wp-cha.html">ギフトラッピング</a><a href="https://www.sambu.jp/SHOP/1105237/list.html">書籍・景品</a><a href="https://www.sambu.jp/FORM/contact.cgi">景品のご相談</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- オーダー矢 -->
+<section class="sec" id="order">
+  <div class="wrap order__in">
+    <a class="order__main" href="https://www.sambu.jp/SHOP/1142981/1171199/list.html"><img src="https://www.sambu.jp/img/item_order_kuro.jpg" alt="フルオーダー矢 黒手羽・黒尾羽" loading="lazy"></a>
+    <div>
+      <p class="sec__en">ORDER MADE</p>
+      <h2 class="order__title">あなたの射に合う<br>一手を誂える</h2>
+      <p class="order__text">矢は、体格と弓に合わせて選ぶ道具です。羽根・シャフト・筈の組み合わせから、オーダーでお作りします。</p>
+      <div class="order__list">
+        <a href="https://www.sambu.jp/SHOP/1142981/1171199/list.html"><img src="https://www.sambu.jp/img/item_order_kuro.jpg" alt="" loading="lazy"><div><h3>フルオーダー矢 黒手羽・黒尾羽</h3><p>羽根から選ぶ、当店のフルオーダー</p></div><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        <a href="#"><img src="https://www.sambu.jp/img/item_takumi.jpg" alt="" loading="lazy"><div><h3>匠の矢</h3><p>好みの部材を組み合わせるオーダーメイド</p></div><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        <a href="https://customize.koyamaya.com/" target="_blank" rel="noopener"><img src="https://www.sambu.jp/img/shinryu_bn.jpg" alt="" loading="lazy"><div><h3>矢龍（外部サイト）</h3><p>ご注文時に店舗コード「0005」をご入力ください</p></div><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- おすすめ商品 -->
+<section class="sec sec--gray">
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <p class="sec__en">PICK UP</p>
+        <h2 class="sec__title">おすすめ商品</h2>
+      </div>
+      <a class="more" href="https://www.sambu.jp/SHOP/list.cgi">すべての商品を見る<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+    </div>
+    <ul class="items">
+      <li><a href="https://www.sambu.jp/SHOP/C-160.html"><div class="img"><img src="https://www.sambu.jp/pic-labo/c-160.jpg" alt="" loading="lazy"></div><p class="code">C-160<span class="tag">ネコポス可</span></p><h3>煌（きらめき）弦 本麻下地巻 1本入り</h3><p class="price">1,930<small>円（税込）</small></p></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/F-373.html"><div class="img"><img src="https://www.sambu.jp/pic-labo/f-373.jpg" alt="" loading="lazy"></div><p class="code">F-373<span class="tag">ネコポス可</span></p><h3>小唐 特製吟革 握り革</h3><p class="price">1,320<small>円（税込）</small></p></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/F-393.html"><div class="img"><img src="https://www.sambu.jp/pic-labo/f-393.jpg" alt="" loading="lazy"></div><p class="code">F-393<span class="tag">ネコポス可</span></p><h3>吟革 美握り革</h3><p class="price">2,200<small>円（税込）</small></p></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/C-178.html"><div class="img"><img src="https://www.sambu.jp/pic-labo/c-178_1.jpg" alt="" loading="lazy"></div><p class="code">C-178<span class="tag">ネコポス可</span></p><h3>籐製 染色弦巻</h3><p class="price">4,400<small>円（税込）</small></p></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/A-179.html"><div class="img"><img src="https://www.sambu.jp/pic-labo/a-179.jpg" alt="" loading="lazy"></div><p class="code">A-179</p><h3>瑞雪（ずいせつ）並寸</h3><p class="price">91,300<small>円（税込）</small></p></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/D-1661.html"><div class="img"><img src="https://www.sambu.jp/pic-labo/D-1661-1.jpg" alt="" loading="lazy"></div><p class="code">D-1661</p><h3>ハヤブサカーボン 黒手羽 80-25 6本組</h3><p class="price">56,700<small>円（税込）</small></p></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/I-015.html"><div class="img"><img src="https://image1.shopserve.jp/sambu.jp/pic-labo/i-015-1s.jpg" alt="" loading="lazy"></div><p class="code">I-015</p><h3>小型巻藁</h3><p class="price">28,800<small>円（税込）</small></p></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/J-017.html"><div class="img"><img src="https://www.sambu.jp/pic-labo/j-017.jpg" alt="" loading="lazy"></div><p class="code">J-017<span class="tag">ネコポス可</span></p><h3>三ツ下カケ 手首長め 白</h3><p class="price">360<small>円（税込）</small></p></a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 大会出店 -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <p class="sec__en">EVENT</p>
+        <h2 class="sec__title">大会出店のご案内</h2>
+        <p class="sec__desc">会場で実際に道具を手に取ってお選びいただけます。</p>
+      </div>
+    </div>
+    <ul class="event__grid">
+      <li><p class="event__date">11.3<small>火・祝</small></p><p class="event__name">明治神宮奉納全国弓道大会</p><p class="event__place">明治神宮至誠館弓道場</p></li>
+      <li><p class="event__date">11.7<small>土</small></p><p class="event__name">千葉県高校弓道新人大会（男子）</p><p class="event__place">千葉県総合スポーツセンター弓道場</p></li>
+      <li><p class="event__date">11.8<small>日</small></p><p class="event__name">千葉県高校弓道新人大会（女子）</p><p class="event__place">千葉県総合スポーツセンター弓道場</p></li>
+    </ul>
+    <p class="event__note">※雨天の場合は中止になることがございます。</p>
+  </div>
+</section>
+
+<!-- 読みもの -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <p class="sec__en">READING</p>
+        <h2 class="sec__title">読みもの</h2>
+      </div>
+    </div>
+    <div class="read__grid">
+      <a href="#"><span class="kind">特集</span><h3>弓道のある暮らし</h3><p>稽古のある毎日を、少し豊かにしてくれる道具の話。</p></a>
+      <a href="#"><span class="kind">特集</span><h3>世界に広がる弓道</h3><p>海外で弓を引く、各国の弓道クラブをご紹介します。</p></a>
+      <a href="https://www.sambu.jp/hpgen/HPB/entries/32.html"><span class="kind">ご案内</span><h3>よくあるご質問</h3><p>サイズの選び方、お届け、返品について。</p></a>
+      <a href="https://www.sambu.jp/hpgen/HPB/entries/13.html"><span class="kind">採用情報</span><h3>スタッフ募集</h3><p>弓道経験者のスタッフを募集しています。</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- 店舗・お問い合わせ -->
+<section class="sec shop">
+  <div class="wrap shop__in">
+    <div class="shop__box">
+      <p class="sec__en">SHOP</p>
+      <h2 class="sec__title">山武弓具店について</h2>
+      <p class="sec__desc">全日本弓道具協会会員。千葉県山武市の実店舗でも、道具をご覧いただけます。</p>
+      <dl class="shop__table">
+        <div><dt>所在地</dt><dd>〒289-1214 千葉県山武市森1298</dd></div>
+        <div><dt>通信販売</dt><dd>10:00〜17:00<br>定休日：水・日・祝</dd></div>
+        <div><dt>実店舗</dt><dd>10:00〜12:00／14:00〜17:00<br>定休日：火・水・祝</dd></div>
+      </dl>
+    </div>
+    <div class="shop__box">
+      <p class="sec__en">CONTACT</p>
+      <h2 class="sec__title">お問い合わせ</h2>
+      <p class="sec__desc">道具選びのご相談・修理・大会景品のお見積りもお気軽に。</p>
+      <div class="shop__tel">
+        <p class="label">お電話（受付 10:00〜17:00）</p>
+        <a class="num" href="tel:0475880005">0475-88-0005</a>
+      </div>
+      <div class="shop__sub">
+        <p><span>FAX</span>0475-88-1197（24時間受付）</p>
+        <p><span>メール</span><a href="mailto:yumi@sambu.jp">yumi@sambu.jp</a>（24時間受付）</p>
+      </div>
+      <a class="btn btn--ai" href="https://www.sambu.jp/FORM/contact.cgi">お問い合わせフォーム</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__in">
+      <p class="footer__copy">良質な弓道具との出会いを</p>
+      <nav class="footer__links" aria-label="ご利用案内">
+        <a href="https://www.sambu.jp/hpgen/HPB/shop/shoppinguide.html">お買い物ガイド</a>
+        <a href="https://www.sambu.jp/hpgen/HPB/shop/shoppinguide.html">配送料・お届け</a>
+        <a href="https://www.sambu.jp/hpgen/HPB/shop/shoppinguide.html">お支払い方法</a>
+        <a href="https://www.sambu.jp/hpgen/HPB/shop/shoppinguide.html">返品・交換</a>
+        <a href="https://www.sambu.jp/hpgen/HPB/shop/shoppinguide.html">会社概要</a>
+        <a href="https://www.sambu.jp/hpgen/HPB/shop/shoppinguide.html">特定商取引法に関する表示</a>
+        <a href="https://www.sambu.jp/hpgen/HPB/shop/shoppinguide.html">個人情報の取り扱い</a>
+        <a href="https://www.sambu.jp/CART/newmem.php">新規会員登録</a>
+        <a href="https://www.sambu.jp/FORM/contact.cgi">お問い合わせ</a>
+      </nav>
+    </div>
+    <small>&copy; 山武弓具店 Sambu Kyugu Equipment</small>
+  </div>
+</footer>
+
+<!-- 打合せ用：A案・B案の切り替え（本番では削除） -->
+<nav class="switch" aria-label="デザイン案の切り替え"><a href="./">A案</a><a class="is-current" href="./b.html">B案</a></nav>
+
+<script>
+(function(){
+  var root=document.getElementById('top'), btn=root.querySelector('.menu-btn');
+  btn.addEventListener('click',function(){
+    var open=root.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded',open);
+    document.body.style.overflow=open?'hidden':'';
+  });
+})();
+</script>
+</body>
+</html>
