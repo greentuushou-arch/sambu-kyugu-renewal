@@ -365,12 +365,12 @@ body{background:var(--paper)}
 .promise__pay a{display:flex;flex-direction:column;gap:8px}
 .promise .pay{display:flex;flex-wrap:wrap;gap:6px}
 .promise .pay span{font-family:var(--num);font-size:15px;font-weight:600;line-height:1;letter-spacing:.02em;padding:7px 10px;border:1px solid rgba(255,255,255,.55);border-radius:4px;white-space:nowrap}
-.promise .pay span:last-child{font-family:var(--sans);font-weight:700;font-size:14px}
+.promise .pay span:nth-child(n+3){font-family:var(--sans);font-weight:700;font-size:14px}
 .promise__pay a:hover .pay span{background:#fff;color:var(--ink)}
 @media (max-width:767px){
   .promise .pay{gap:5px}
   .promise .pay span{font-size:13px;padding:6px 8px}
-  .promise .pay span:last-child{font-size:12px}
+  .promise .pay span:nth-child(n+3){font-size:12px}
 }
 </style>
 </head>
@@ -475,7 +475,7 @@ body{background:var(--paper)}
     <ul>
       <li><span class="num">14:00</span><p>までのご注文は<br>当日出荷（在庫品）</p></li>
       <li><span class="num">8,800<small>円</small></span><p>以上のお買い上げで<br>送料無料</p></li>
-      <li class="promise__pay"><a href="https://www.sambu.jp/hpgen/HPB/shop/shoppinguide.html"><span class="pay"><span>Amazon Pay</span><span>PayPay</span><span>楽天ペイ</span></span><p>のお支払いに対応</p></a></li>
+      <li class="promise__pay"><a href="https://www.sambu.jp/hpgen/HPB/shop/shoppinguide.html"><span class="pay"><span>Amazon Pay</span><span>PayPay</span><span>楽天ペイ</span><span>後払い.com</span></span><p>のお支払いに対応</p></a></li>
       <li><span class="num">100<small>pt</small></span><p>新規会員登録で<br>プレゼント</p></li>
     </ul>
   </div>
