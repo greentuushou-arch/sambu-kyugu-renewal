@@ -3,27 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>弓具の通販 山武弓具店（さんぶきゅうぐてん）｜トップページ リニューアル案 B</title>
+<title>弓具の通販 山武弓具店（さんぶきゅうぐてん）｜トップページ リニューアル案 C</title>
 <!--
-  山武弓具店 トップページ リニューアル案 B
-  ・A案（index.html）＝生成り×墨×朱・明朝の格調タイプ
-  ・B案（このファイル）＝白×藍・ゴシックで明るく、商品にすぐたどり着けるタイプ
+  山武弓具店 トップページ リニューアル案 C（打合せ結果：レイアウト＝B案／色味・フォント＝A案）
+  ・レイアウトはB案（b.html）と同じ
+  ・色は A案の 生成り×墨×朱、見出しは明朝（Shippori Mincho）、本文 Noto Sans JP、数字 Jost
   ・構成要素（お知らせ枠・検索・カテゴリー等）はA案と共通。ショップサーブへの載せ方も同じ
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Jost:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#1b1f27;
-  --ink-soft:#4b5260;
-  --ai:#22395c;
-  --ai-deep:#172843;
-  --ai-pale:#eef2f7;
-  --gray:#f5f5f3;
-  --line:#e2e4e8;
+  --ink:#1d1b18;
+  --ink-soft:#4a453e;
+  --ai:#1d1b18;        /* B案の藍 → A案の墨 */
+  --ai-deep:#000;
+  --ai-pale:#f4efe4;   /* 生成り */
+  --gray:#f4efe4;
+  --paper:#fbf8f1;
+  --line:#d9d1c1;
   --shu:#b3241c;
-  --head:"Noto Sans JP",sans-serif; /* 家具のソムリエ案件と同じ Noto Sans JP＋Jost */
+  --shu-dark:#8f1a14;
+  --head:"Shippori Mincho","Noto Serif JP",serif;
   --sans:"Noto Sans JP",sans-serif;
   --num:"Jost","Noto Sans JP",sans-serif;
   --wrap:1160px;
@@ -313,6 +315,52 @@ ul,ol{list-style:none}
 @media (prefers-reduced-motion:reduce){
   .fv__fly{animation:none}
   *{transition:none!important}
+}
+
+/* ===== C案：A案の色味・フォントに寄せる上書き（レイアウトはB案のまま） ===== */
+body{background:var(--paper)}
+.fv{background:var(--gray)}
+.fv__title,.sec__title,.order__title,.purpose__item h3,.event__name,.read__grid h3,.footer__copy,.cat__grid span,.order__list h3{font-weight:700;letter-spacing:.06em}
+.fv__title{font-weight:600;font-size:72px;line-height:1.35}
+.fv__title em,.fv__lead{color:var(--shu)}
+.sec__en{color:var(--shu)}
+.promise .num--jp{font-weight:700}
+.btn,.header__search,.alert__more,.purpose__links a,.items .tag,.switch,.switch a{border-radius:4px}
+.cat__grid a,.items .img,.read__grid a,.purpose__item,.event__grid li,.shop__box{border-radius:6px}
+.btn--ai{background:var(--shu)}
+.btn--ai:hover{background:var(--shu-dark)}
+.btn--line{border-width:1px;padding:15px 29px}
+.header__search{border-width:1px;border-color:var(--ink)}
+.cat__grid a:hover,.read__grid a:hover{border-color:var(--shu)}
+.gnav a:hover{color:var(--shu);border-bottom-color:var(--shu)}
+.purpose__for,.read__grid .kind{color:var(--shu)}
+.purpose__links a{background:var(--paper);border:1px solid var(--line);color:var(--ink)}
+.purpose__links a:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+.items .tag{background:none;border:1px solid var(--ink-soft);color:var(--ink-soft)}
+.event__grid li{border-top-color:var(--shu)}
+.event__date{color:var(--ink)}
+.event__date small{color:var(--shu)}
+.shop__table dt{color:var(--ink)}
+.shop__tel .num{color:var(--ink)}
+.shop__tel .num:hover{color:var(--shu)}
+.order__list svg,.more{color:var(--shu)}
+.promise p{color:#d8d1c4}
+.notice{color:#efe9dc}
+.footer{color:#cfc7b8}
+.footer small{color:#8d867a}
+/* お知らせ枠はA案と同じ（休業＝朱ベタ／配送遅延＝墨ベタ） */
+.alert{background:var(--shu);color:#fff;border-bottom:0}
+.alert__label{color:#fff}
+.alert__text b{color:#fff;border-bottom:1px solid rgba(255,255,255,.7)}
+.alert__more{background:#fff;color:var(--shu)}
+.alert--delay{background:var(--ink)}
+.alert--delay .alert__label{color:#f0c96a}
+.alert--delay .alert__text b{color:#fff}
+.alert--delay .alert__more{background:#fff;color:var(--ink)}
+.alert + .alert{border-top:1px solid rgba(255,255,255,.25)}
+@media (max-width:767px){
+  .fv__title{font-size:40px;line-height:1.4}
+  .sp-search{border-width:1px;border-color:var(--ink);border-radius:4px}
 }
 </style>
 </head>
@@ -631,7 +679,7 @@ ul,ol{list-style:none}
 </footer>
 
 <!-- 打合せ用：A案・B案の切り替え（本番では削除） -->
-<nav class="switch" aria-label="デザイン案の切り替え"><a href="./">A案</a><a class="is-current" href="./b.html">B案</a><a href="./c.html">C案</a></nav>
+<nav class="switch" aria-label="デザイン案の切り替え"><a href="./">A案</a><a href="./b.html">B案</a><a class="is-current" href="./c.html">C案</a></nav>
 
 <script>
 (function(){
