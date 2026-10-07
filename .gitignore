@@ -1,0 +1,8 @@
+# 作業用（素材の控え・スクリーンショット・検証用コピー）
+cand/
+img/
+shots/
+list-custom/*.html
+list-custom/*.json
+list-custom/*.png
+!list-custom/compare.png
