@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>サイトリニューアル 納品データ一式｜山武弓具店</title>
+<style>
+:root{--sumi:#1d1b18;--soft:#4a453e;--kinari:#f4efe4;--paper:#fbf8f1;--shu:#b3241c;--line:#d9d1c1}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Noto Sans JP","Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;font-size:15px;line-height:1.9;color:var(--sumi);background:var(--paper)}
+.page{max-width:900px;margin:0 auto;padding:48px 32px 64px}
+header{border-bottom:2px solid var(--sumi);padding-bottom:20px;margin-bottom:32px}
+.kicker{font-size:13px;color:var(--shu);font-weight:700;letter-spacing:.08em}
+h1{font-size:28px;line-height:1.5;margin-top:6px}
+.meta{font-size:13px;color:var(--soft);margin-top:8px}
+.part{font-size:13px;font-weight:700;letter-spacing:.12em;color:#fff;background:var(--sumi);display:inline-block;padding:2px 12px;border-radius:3px;margin-top:40px}
+h2{font-size:22px;margin:8px 0 14px;line-height:1.5}
+h3{font-size:17px;margin:30px 0 8px;padding-left:12px;border-left:4px solid var(--shu);line-height:1.5}
+h4{font-size:15px;margin:16px 0 4px}
+p+p{margin-top:8px}
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px;background:#fff}
+th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+th{background:var(--kinari);font-weight:700;white-space:nowrap}
+ol,ul{padding-left:1.4em}
+li+li{margin-top:5px}
+code{font-family:Consolas,"Courier New",monospace;font-size:13px;background:var(--kinari);padding:1px 6px;border-radius:3px}
+.box{background:#fff;border:1px solid var(--line);border-radius:6px;padding:16px 20px;margin-top:12px}
+.box--ask{border-color:var(--shu)}
+.box--ask h4{margin-top:0;color:var(--shu)}
+.figs{display:grid;grid-template-columns:2.4fr 1fr;gap:14px;margin-top:12px;align-items:start}
+.figure{background:#fff;border:1px solid var(--line);border-radius:6px;padding:8px}
+.figure img{width:100%;height:auto;display:block}
+.figure p{font-size:12px;color:var(--soft);margin-top:4px}
+.tree{font-family:Consolas,"Courier New",monospace;font-size:12.5px;line-height:1.7;background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px 18px;white-space:pre;overflow-x:auto}
+.note{font-size:13px;color:var(--soft)}
+.todo td:first-child{white-space:nowrap;font-weight:700}
+@media print{
+  body{background:#fff;font-size:12.5px}
+  .page{padding:0;max-width:none}
+  h3{break-after:avoid;margin-top:22px}
+  .figure,.box,table,.tree{break-inside:avoid}
+  .break{break-before:page}
+}
+@page{size:A4;margin:15mm 14mm}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <p class="kicker">山武弓具店さま　サイトリニューアル</p>
+  <h1>納品データ一式のご案内</h1>
+  <p class="meta">内容：トップページ（PC・スマホ共通）／商品一覧ページの見やすさ改善（PC・スマホ）　作成：GREEN通商</p>
+</header>
+
+<h3>この一式に入っているもの</h3>
+<div class="tree">sambu-renewal-kit/
+├ README.html / README.pdf …… この資料
+├ top/  ………………………………… トップページ
+│  ├ index.html ………………… 仕上がり確認用（ブラウザで開くと完成形が見られます）
+│  ├ top.css …………………… トップページのデザイン
+│  ├ top.js ……………………… スマホのメニュー開閉
+│  ├ parts/ ……………………… ショップサーブに貼り付ける部品（5つ）
+│  │  ├ 00_head.html ……… &lt;head&gt; に入れるもの（フォント・CSSの読み込み）
+│  │  ├ 01_header.html …… 共通ヘッダー（送料無料の帯・ロゴ・検索・カテゴリー）
+│  │  ├ 02_alerts.html …… 臨時のお知らせ枠（休業・配送遅延）
+│  │  ├ 03_top-main.html … トップページ本文
+│  │  └ 04_footer.html …… 共通フッター
+│  └ images/ …………………… 仕上がりの画像（PC・スマホの全体）
+└ list/  ………………………………… 商品一覧ページの改善
+   ├ pc/list.css・list.js …… PC版
+   ├ sp/list-sp.css・list-sp.js … スマホ版
+   └ images/ …………………… 変更前後の比較画像</div>
+
+<!-- ======================== トップページ ======================== -->
+<p class="part break" style="margin-top:0">PART 1</p>
+<h2>トップページ</h2>
+<p>打合せで決まった「レイアウトはB案、色味とフォントはA案」の形です。PCとスマホは同じファイルで、画面幅に合わせて自動で切り替わります。</p>
+
+<div class="figs">
+  <div class="figure"><img src="top/images/fv_pc.png" alt="トップページ PC ファーストビュー"><p>PC（上部）。全体は top/images/top_pc.png</p></div>
+  <div class="figure"><img src="top/images/fv_sp.png" alt="トップページ スマホ ファーストビュー"><p>スマホ（上部）。全体は top_sp.png</p></div>
+</div>
+
+<h3>デザインの決まりごと</h3>
+<table>
+  <tr><th>色</th><td>生成り（背景）・墨（帯・文字）・朱（強調・ボタン）の3色</td></tr>
+  <tr><th>フォント</th><td>見出し：Shippori Mincho（明朝）／本文：Noto Sans JP／数字・英字：Jost（すべてGoogleフォントで無料）</td></tr>
+  <tr><th>ページの並び</th><td>お知らせ帯 → ヘッダー（検索を中央に） → 臨時のお知らせ → ファーストビュー → 当日出荷・送料無料・決済方法・会員ポイント → カテゴリー → 目的から選ぶ → オーダー矢 → おすすめ商品 → 大会出店 → 読みもの → 店舗・お問い合わせ → フッター</td></tr>
+  <tr><th>使っている技術</th><td>HTML・CSS・ごく短いJavaScriptのみ。<b>PHPなどサーバー側のプログラムは使っていないため、ショップサーブにそのまま載せられます。</b>ログイン・カート・検索・お問い合わせは、ショップサーブ既存のページにリンクしています。</td></tr>
+  <tr><th>画像</th><td>今のサイトにある画像（www.sambu.jp 上）をそのまま参照しています。新しくアップする画像はありません。</td></tr>
+</table>
+
+<h3>ショップサーブへの組み込み手順</h3>
+<ol>
+  <li><code>top/top.css</code> と <code>top/top.js</code> をサーバーにアップロードします（例：<code>/css/top.css</code>・<code>/js/top.js</code>）。部品の中の <code>top.css</code>・<code>top.js</code> の参照先を、アップロードした場所に合わせて書き換えます。</li>
+  <li><code>parts/00_head.html</code> を、トップページの &lt;head&gt; に追加します。</li>
+  <li><code>parts/01_header.html</code> と <code>02_alerts.html</code> を、共通ヘッダーに置き換えます（お知らせ枠はカテゴリーメニューの直下）。</li>
+  <li><code>parts/03_top-main.html</code> を、トップページの本文に貼り付けます。</li>
+  <li><code>parts/04_footer.html</code> を、共通フッターに置き換えます（最後の &lt;script&gt; も含めて）。</li>
+</ol>
+<p class="note">※共通ヘッダー・フッターを置き換えると、トップ以外のページにも反映されます。他のページの古いCSSとぶつかって表示が崩れないか、置き換えた後に商品ページ・カート周りもご確認ください。まずトップページだけで表示を確認し、その後に共通部分を置き換える進め方が安全です。<br>※CSS・HTMLを書ける具体的な場所（管理画面のどの項目か）は、ショップサーブの管理画面で確認のうえ進めます。</p>
+
+<h3 class="break">公開前にご確認・差し替えいただきたいこと</h3>
+<table class="todo">
+  <tr><th>項目</th><th>いまの状態</th><th>お願い</th></tr>
+  <tr><td>「匠の矢」のリンク先</td><td>今のサイトでもリンクが未設定のため、仮のリンク（#）</td><td>正しいページのURLを教えてください</td></tr>
+  <tr><td>読みもの2本のリンク先</td><td>「弓道のある暮らし」「世界に広がる弓道」が仮のリンク（#）</td><td>各ページのURLを教えてください</td></tr>
+  <tr><td>フッターのリンク</td><td>会社概要・特定商取引法・個人情報など7項目が、仮でお買い物ガイドにつながっています</td><td>それぞれの正しいページに差し替えます</td></tr>
+  <tr><td>おすすめ商品の価格</td><td>2026年9月時点の価格を文字で入れています</td><td>価格が変わったら書き換えが必要です（ショップサーブの商品表示機能に置き換えることもできます）</td></tr>
+  <tr><td>大会出店の予定</td><td>11/3・11/7・11/8 の3件</td><td>終わった予定は削除・次の予定に更新してください</td></tr>
+  <tr><td>臨時のお知らせ</td><td>見本として「年末年始休業（12/28〜1/5）」が表示される状態</td><td>実際の休業日に合わせて書き換えるか、公開時は <code>hidden</code> を付けて非表示にしてください</td></tr>
+  <tr><td>文字入りのバナー画像</td><td>「目的から選ぶ」「オーダー矢」は、今のバナー画像（文字入り）を流用</td><td>文字の入っていない写真があれば差し替えると、より見やすくなります</td></tr>
+</table>
+
+<h3>臨時のお知らせ枠の使い方（休業・配送遅延）</h3>
+<ul>
+  <li><b>出すとき</b>：<code>02_alerts.html</code> の該当する <code>&lt;aside&gt;</code> から <code>hidden</code> を消し、見出し・本文・「詳しく見る」のリンク先を書き換えます。</li>
+  <li><b>消すとき</b>：<code>hidden</code> を付け直します。</li>
+  <li><b>消し忘れ防止</b>：<code>data-until="2027-01-05"</code> のように最終日を入れておくと、<b>その翌日から自動で非表示</b>になります。</li>
+  <li><b>種類</b>：休業は朱色（<code>class="alert"</code>）、配送遅延は墨色（<code>class="alert alert--delay"</code>）。2つ同時にも出せます。</li>
+  <li>通販の定休日（水・日・祝）を避けた発送日を書くようご注意ください。</li>
+</ul>
+
+<!-- ======================== 商品一覧 ======================== -->
+<p class="part break" style="margin-top:0">PART 2</p>
+<h2>商品一覧ページ（PC・スマホ）の見やすさ改善</h2>
+<p>ご要望の3点は、今のショップサーブのまま、CSSと短いJavaScriptを追加するだけで実現できます。商品データやページの仕組みは変更しません。</p>
+<table>
+  <tr><th>ご要望</th><th>PC</th><th>スマホ</th></tr>
+  <tr><td>商品名の文字数をそろえ「…」で省略</td><td colspan="2">商品名を<b>2行</b>で表示し、超えた分を「…」で省略（理由は下の「ご相談したいこと①」）</td></tr>
+  <tr><td>画像の高さをそろえる</td><td colspan="2">すべての画像を<b>正方形の枠</b>にそろえる。縦長の画像も切らずに枠の中に収める</td></tr>
+  <tr><td>画像を大きくする</td><td>4列 → <b>3列</b>。画像は約130px → <b>約235px</b></td><td>1列（画像は左に小さく） → <b>2列</b>。画像は約100px → <b>約170px</b></td></tr>
+</table>
+<p class="note" style="margin-top:6px">※大きく表示してもぼやけないよう、一覧用の縮小画像（PC 120px／スマホ 180px）を、すでにサーバーにある元画像（1500px）に差し替えます。画面に近づいてから読み込むので、表示の速さへの影響は抑えています。</p>
+
+<h3>変更前・変更後</h3>
+<div class="figure"><img src="list/images/compare_pc.png" alt="PC版 商品一覧の変更前と変更後"><p>PC（弓カテゴリー）　左：いま／右：CSS適用後</p></div>
+<div class="figure" style="max-width:380px;margin-top:12px"><img src="list/images/compare_sp.png" alt="スマホ版 商品一覧の変更前と変更後"><p>スマホ（弓カテゴリー）　左：いま／右：CSS適用後。PICK UPなどのタグは、画像の中の文字を隠さないよう画像の下に移しています。</p></div>
+
+<h3>設置の手順</h3>
+<table>
+  <tr><th></th><th>CSS</th><th>JavaScript</th></tr>
+  <tr><th>PC</th><td><code>list/pc/list.css</code> の中身を、PC版の一覧ページで読み込まれている店舗CSS（現在は <code>/css/layout.css</code>）の最後に追記</td><td><code>list/pc/list.js</code> を、PC版の共通部分（ヘッダーまたはフッター）で読み込み</td></tr>
+  <tr><th>スマホ</th><td><code>list/sp/list-sp.css</code> の中身を、スマホ版の一覧ページで読み込まれている店舗CSS（現在は <code>/css/accordion.css</code>）の最後に追記</td><td><code>list/sp/list-sp.js</code> を、スマホ版の共通部分（ヘッダーまたはフッター）で読み込み</td></tr>
+</table>
+<ul style="margin-top:10px">
+  <li>商品一覧の部分（PC：<code>table.itemList</code>／スマホ：<code>ul.itemlist</code>）にだけ効くように書いています。カテゴリ内・検索結果の両方に反映され、それ以外のページは変わりません。</li>
+  <li><b>元に戻すとき</b>は、追記したCSSとJavaScriptを削除するだけで、今の表示に戻ります。</li>
+</ul>
+
+<h3>ご相談したいこと</h3>
+<div class="box box--ask">
+  <h4>① 「30文字で…」ではなく「2行で…」をおすすめします</h4>
+  <p>CSSで省略できるのは<b>行数単位</b>です。文字数で切るにはJavaScriptが必要で、全角と半角（英数字・記号）が混ざると見た目の長さがそろいません。2行で省略すると、PCは1行あたり約16文字×2行で、ご希望の30文字前後になります（スマホは約13文字×2行）。</p>
+</div>
+<div class="box box--ask">
+  <h4>② 商品番号が隠れてしまう点</h4>
+  <p>今の商品名は「ミヤタ 別作AC 節付塗弓風 … 【代金引換で送料無料！】 <b>A-228</b> 弓道 弓具 弓 海外発送 山武弓具店」のように、商品番号や検索用のキーワードが後ろに付いています。2行で省略すると、<b>商品番号が見えなくなります</b>。</p>
+  <p>英語版（Shopify）のように <b>【A-228】を先頭に移す</b>と解決します（例：「【A-228】ミヤタ 別作AC 節付塗弓風 うるみ色 二寸伸 在庫品」）。ただし、検索用のキーワードを商品名から外すかどうかは、検索順位への影響もあるため、あわせてご検討ください。</p>
+</div>
+<div class="box box--ask">
+  <h4>③ スマホ版では一覧のキャッチコピーを非表示にしています</h4>
+  <p>2列にすると1商品あたりの幅が狭くなるため、一覧ではキャッチコピーを表示しないようにしています。商品ページには今まで通り表示されます。一覧でも表示したい場合は調整できます。</p>
+</div>
+<div class="box">
+  <h4 style="margin-top:0">良くなる点：画像の中の文字が読める</h4>
+  <p>画像が大きくなることで、「受注生産品」「即納品」「二寸伸」など、画像の中に入れている文字がはっきり読めるようになります。</p>
+</div>
+
+<h3>確認について</h3>
+<ul>
+  <li>トップページは、PC（画面幅1366px）とスマホ（画面幅375px）で表示を確認しています。</li>
+  <li>商品一覧は、現在の実際の一覧ページ（PC・スマホ）にこのCSSを当てて表示を確認しています。</li>
+  <li>確認は Chrome / Edge系ブラウザで行っています。本番に設置したあと、iPhone（Safari）とAndroid（Chrome）の実機で最終確認をおすすめします。</li>
+</ul>
+
+</div>
+</body>
+</html>

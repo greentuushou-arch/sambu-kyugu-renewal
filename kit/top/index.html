@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>弓具の通販 山武弓具店（さんぶきゅうぐてん）</title>
+<!-- 確認用：parts/ の5つのパーツをつないだ完成形。ブラウザで開くと仕上がりを確認できます -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="top.css">
+</head>
+<body>
+
+<div class="notice">
+  <div class="wrap">
+    <span><b>8,800円以上で送料無料</b>（弓・矢筒・巻藁など大型商品を除く）　<a href="https://www.sambu.jp/hpgen/HPB/shop/shoppinguide.html">詳しく</a></span>
+    <span>通信販売 10:00〜17:00（水・日・祝 定休）</span>
+  </div>
+</div>
+
+<div id="top">
+<header class="header">
+  <div class="wrap header__in">
+    <a class="header__logo" href="https://www.sambu.jp/"><img src="https://www.sambu.jp/img/logo.jpg" alt="山武弓具店 Sambu Kyugu Equipment" width="207" height="142"></a>
+    <form class="header__search" action="https://www.sambu.jp/SHOP/list.php" method="get">
+      <input type="search" name="Search" placeholder="商品名・商品番号で探す（例：煌、C-160）" aria-label="商品を検索">
+      <button type="submit">検索</button>
+    </form>
+    <div class="header__util">
+      <a href="https://www.sambu.jp/CART/login.php"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><span class="txt">ログイン</span></a>
+      <a class="header__cart" href="https://www.sambu.jp/CART/cart.php"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h2l2.4 11h11.2L21 7H6.3"/><circle cx="9" cy="19.5" r="1.3"/><circle cx="17" cy="19.5" r="1.3"/></svg><span class="txt">カート</span></a>
+      <button class="menu-btn" type="button" aria-label="メニュー" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+  <form class="sp-search" action="https://www.sambu.jp/SHOP/list.php" method="get">
+    <input type="search" name="Search" placeholder="商品名・商品番号で探す" aria-label="商品を検索">
+    <button type="submit">検索</button>
+  </form>
+</header>
+<nav class="gnav" aria-label="カテゴリー">
+  <div class="wrap">
+    <ul>
+      <li><a href="https://www.sambu.jp/SHOP/201260/list.html">弓</a></li>
+      <li><a href="https://www.sambu.jp/SHOP/1142981/list.html">矢</a></li>
+      <li><a href="https://www.sambu.jp/SHOP/201254/list.html">ユガケ</a></li>
+      <li><a href="https://www.sambu.jp/SHOP/199569/list.html">弦</a></li>
+      <li><a href="https://www.sambu.jp/SHOP/201252/list.html">弓付属品</a></li>
+      <li><a href="https://www.sambu.jp/SHOP/201249/list.html">矢筒</a></li>
+      <li><a href="https://www.sambu.jp/SHOP/201253/list.html">弓道着</a></li>
+      <li><a href="https://www.sambu.jp/SHOP/201250/list.html">道場備品</a></li>
+      <li><a href="https://www.sambu.jp/SHOP/1105237/list.html">書籍・景品</a></li>
+      <li><a href="https://www.sambu.jp/SHOP/928965/list.html">初心者セット</a></li>
+      <li><a href="https://www.sambu.jp/SHOP/1176195/list.html">特価品</a></li>
+      <li><a href="https://www.sambu.jp/FORM/contact.cgi">修理のご相談</a></li>
+    </ul>
+  </div>
+</nav>
+</div>
+
+<!-- ================================================================
+  臨時のお知らせ（長期休業・悪天候による配送遅延など）
+  ・出すとき：<aside> の hidden を消し、見出し・本文・リンク先を書き換える
+  ・消すとき：hidden を付ける。data-until="YYYY-MM-DD" に最終日を入れると、その翌日から自動で非表示
+  ・種類：休業は class="alert"、配送遅延は class="alert alert--delay"
+  ・全ページに出すため、共通ヘッダーのカテゴリーメニューの直下に置いてください
+  ・通販の定休日（水・日・祝）を避けた発送日を書くよう注意
+================================================================= -->
+<div class="alerts">
+  <aside class="alert" data-until="2027-01-05" aria-label="重要なお知らせ">
+    <div class="wrap alert__in">
+      <p class="alert__label"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 6.5v7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.3" fill="currentColor"/></svg>年末年始休業のお知らせ</p>
+      <p class="alert__text"><b>12月28日（月）〜1月5日（火）</b>は休業いたします。休業中のご注文は、1月7日（木）より順次発送いたします。</p>
+      <a class="alert__more" href="https://www.sambu.jp/hpgen/HPB/entries/31.html">詳しく見る</a>
+    </div>
+  </aside>
+  <aside class="alert alert--delay" data-until="2026-10-10" aria-label="配送のお知らせ" hidden>
+    <div class="wrap alert__in">
+      <p class="alert__label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6h12v10H2zM14 10h4.5L22 13.5V16h-8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="6" cy="17.5" r="1.8" fill="currentColor"/><circle cx="18" cy="17.5" r="1.8" fill="currentColor"/></svg>配送遅延のお知らせ</p>
+      <p class="alert__text">台風の影響により、<b>九州・沖縄方面</b>へのお届けに遅れが生じております。ご迷惑をおかけし申し訳ございません。</p>
+      <a class="alert__more" href="https://www.sambu.jp/hpgen/HPB/entries/26.html">詳しく見る</a>
+    </div>
+  </aside>
+</div>
+<script>
+(function(){
+  var today=new Date(); today.setHours(0,0,0,0);
+  var list=document.querySelectorAll('.alert[data-until]');
+  for(var i=0;i<list.length;i++){
+    var p=list[i].getAttribute('data-until').split('-');
+    if(today>new Date(+p[0],+p[1]-1,+p[2])){list[i].hidden=true}
+  }
+})();
+</script>
+
+<main>
+
+<!-- FV -->
+<section class="fv">
+  <div class="wrap">
+    <p class="fv__lead">SAMBU KYUGU<span>千葉・山武の弓具専門店</span></p>
+    <h1 class="fv__title">弓を引く人の<br><em>いちばん近く</em>に</h1>
+  </div>
+  <div class="fv__band" aria-hidden="true">
+    <div class="fv__fly"><img src="https://www.sambu.jp/pic-labo/D-1661-1.jpg" alt="" width="1500" height="1000"></div>
+  </div>
+  <div class="wrap fv__foot">
+    <p class="fv__text">弓・矢・カケから、<br class="sp">職人仕立てのオーダー矢まで。<br>道具選びのご相談も、お気軽にどうぞ。</p>
+    <div class="fv__btns">
+      <a class="btn btn--ai" href="#cat">カテゴリーから探す<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+      <a class="btn btn--line" href="#purpose">はじめての方へ</a>
+    </div>
+  </div>
+</section>
+
+<section class="promise" aria-label="当店のサービス">
+  <div class="wrap">
+    <ul>
+      <li><span class="num">14:00</span><p>までのご注文は<br>当日出荷（在庫品）</p></li>
+      <li><span class="num">8,800<small>円</small></span><p>以上のお買い上げで<br>送料無料</p></li>
+      <li class="promise__pay"><a href="https://www.sambu.jp/hpgen/HPB/shop/shoppinguide.html"><span class="pay"><span>Amazon Pay</span><span>PayPay</span><span>楽天ペイ</span><span>後払い.com</span></span><p>のお支払いに対応</p></a></li>
+      <li><span class="num">100<small>pt</small></span><p>新規会員登録で<br>プレゼント</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- カテゴリー（B案では最初に） -->
+<section class="sec" id="cat">
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <p class="sec__en">CATEGORY</p>
+        <h2 class="sec__title">カテゴリーから探す</h2>
+      </div>
+      <a class="more" href="https://www.sambu.jp/SHOP/list.cgi">すべての商品<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+    </div>
+    <ul class="cat__grid">
+      <li><a href="https://www.sambu.jp/SHOP/201260/list.html"><div class="img"><img src="https://www.sambu.jp/img/cate_yumi.jpg" alt="" loading="lazy"></div><span>弓</span></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/1142981/list.html"><div class="img"><img src="https://www.sambu.jp/img/cate_ya.jpg" alt="" loading="lazy"></div><span>矢</span></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/201254/list.html"><div class="img"><img src="https://www.sambu.jp/img/cate_yukage.jpg" alt="" loading="lazy"></div><span>ユガケ</span></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/199569/list.html"><div class="img"><img src="https://www.sambu.jp/img/cate_tsuru.jpg" alt="" loading="lazy"></div><span>弦</span></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/199569/201243/list.html"><div class="img"><img src="https://www.sambu.jp/img/cate_tsurumaki.jpg" alt="" loading="lazy"></div><span>弦巻</span></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/201252/list.html"><div class="img"><img src="https://www.sambu.jp/img/cate_yumifu.jpg" alt="" loading="lazy"></div><span>弓付属品</span></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/201249/list.html"><div class="img"><img src="https://www.sambu.jp/img/cate_yatutu.jpg" alt="" loading="lazy"></div><span>矢筒</span></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/201253/list.html"><div class="img"><img src="https://www.sambu.jp/img/cate_yumigi.jpg" alt="" loading="lazy"></div><span>弓道着</span></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/201250/list.html"><div class="img"><img src="https://www.sambu.jp/img/cate_bihin.jpg" alt="" loading="lazy"></div><span>道場備品</span></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/1105237/list.html"><div class="img"><img src="https://www.sambu.jp/img/cate_keihin.jpg" alt="" loading="lazy"></div><span>書籍・景品</span></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/1176195/list.html"><div class="img"><img src="https://www.sambu.jp/img/cate_sale.jpg" alt="" loading="lazy"></div><span>特価品</span></a></li>
+      <li><a href="https://www.sambu.jp/FORM/contact.cgi"><div class="img"><img src="https://www.sambu.jp/img/cate_repairs.jpg" alt="" loading="lazy"></div><span>修理</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 目的から選ぶ -->
+<section class="sec sec--gray" id="purpose">
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <p class="sec__en">GUIDE</p>
+        <h2 class="sec__title">目的から選ぶ</h2>
+        <p class="sec__desc">何を選べばいいか迷ったら、ここから。</p>
+      </div>
+    </div>
+    <div class="purpose__grid">
+      <div class="purpose__item">
+        <a class="purpose__img" href="https://www.sambu.jp/SHOP/928965/list.html"><img src="https://www.sambu.jp/img/item_kyudoset.jpg" alt="お得な初心者セット品" loading="lazy"></a>
+        <div>
+          <p class="purpose__for">新入部員・はじめての方</p>
+          <h3>弓道をはじめる</h3>
+          <p>道着・カケ・矢をまとめてそろえられる、お得なセットをご用意しています。</p>
+          <div class="purpose__links"><a href="https://www.sambu.jp/SHOP/928965/list.html">初心者セット</a><a href="https://www.sambu.jp/SHOP/201253/list.html">弓道着</a><a href="https://www.sambu.jp/hpgen/HPB/entries/32.html">よくあるご質問</a></div>
+        </div>
+      </div>
+      <div class="purpose__item">
+        <a class="purpose__img" href="https://www.sambu.jp/SHOP/199569/list.html"><img src="https://www.sambu.jp/img/item_kirameki.jpg" alt="麻弦 煌（きらめき）" loading="lazy"></a>
+        <div>
+          <p class="purpose__for">稽古を続けている方</p>
+          <h3>消耗品を買い替える</h3>
+          <p>弦・握り革・下カケなど。ネコポス対象品は送料もお手頃です。</p>
+          <div class="purpose__links"><a href="https://www.sambu.jp/SHOP/199569/list.html">弦</a><a href="https://www.sambu.jp/SHOP/201254/list.html">ユガケ・下カケ</a><a href="https://www.sambu.jp/SHOP/201252/list.html">握り革</a></div>
+        </div>
+      </div>
+      <div class="purpose__item">
+        <a class="purpose__img" href="https://www.sambu.jp/SHOP/I-015.html"><img src="https://www.sambu.jp/img/item_kogatamakiwara.jpg" alt="小型巻藁" loading="lazy"></a>
+        <div>
+          <p class="purpose__for">道場に行けない日に</p>
+          <h3>自宅で稽古する</h3>
+          <p>持ち運べる小型の巻藁や、射法を確認できるゴム弓。</p>
+          <div class="purpose__links"><a href="https://www.sambu.jp/SHOP/I-015.html">小型巻藁</a><a href="https://www.sambu.jp/SHOP/keyword/gomuyumi">ゴム弓</a></div>
+        </div>
+      </div>
+      <div class="purpose__item">
+        <a class="purpose__img" href="https://www.sambu.jp/SHOP/wp-cha.html"><img src="https://www.sambu.jp/img/service_gift.jpg" alt="有料ギフトラッピング" loading="lazy"></a>
+        <div>
+          <p class="purpose__for">昇段祝い・大会景品に</p>
+          <h3>贈りものを選ぶ</h3>
+          <p>のし・ギフト包装に対応。大会景品のまとめてのご注文もご相談ください。</p>
+          <div class="purpose__links"><a href="https://www.sambu.jp/SHOP/wp-cha.html">ギフトラッピング</a><a href="https://www.sambu.jp/SHOP/1105237/list.html">書籍・景品</a><a href="https://www.sambu.jp/FORM/contact.cgi">景品のご相談</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- オーダー矢 -->
+<section class="sec" id="order">
+  <div class="wrap order__in">
+    <a class="order__main" href="https://www.sambu.jp/SHOP/1142981/1171199/list.html"><img src="https://www.sambu.jp/img/item_order_kuro.jpg" alt="フルオーダー矢 黒手羽・黒尾羽" loading="lazy"></a>
+    <div>
+      <p class="sec__en">ORDER MADE</p>
+      <h2 class="order__title">あなたの射に合う<br>一手を誂える</h2>
+      <p class="order__text">矢は、体格と弓に合わせて選ぶ道具です。羽根・シャフト・筈の組み合わせから、オーダーでお作りします。</p>
+      <div class="order__list">
+        <a href="https://www.sambu.jp/SHOP/1142981/1171199/list.html"><img src="https://www.sambu.jp/img/item_order_kuro.jpg" alt="" loading="lazy"><div><h3>フルオーダー矢 黒手羽・黒尾羽</h3><p>羽根から選ぶ、当店のフルオーダー</p></div><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        <a href="#"><img src="https://www.sambu.jp/img/item_takumi.jpg" alt="" loading="lazy"><div><h3>匠の矢</h3><p>好みの部材を組み合わせるオーダーメイド</p></div><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        <a href="https://customize.koyamaya.com/" target="_blank" rel="noopener"><img src="https://www.sambu.jp/img/shinryu_bn.jpg" alt="" loading="lazy"><div><h3>矢龍（外部サイト）</h3><p>ご注文時に店舗コード「0005」をご入力ください</p></div><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- おすすめ商品 -->
+<section class="sec sec--gray">
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <p class="sec__en">PICK UP</p>
+        <h2 class="sec__title">おすすめ商品</h2>
+      </div>
+      <a class="more" href="https://www.sambu.jp/SHOP/list.cgi">すべての商品を見る<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+    </div>
+    <ul class="items">
+      <li><a href="https://www.sambu.jp/SHOP/C-160.html"><div class="img"><img src="https://www.sambu.jp/pic-labo/c-160.jpg" alt="" loading="lazy"></div><p class="code">C-160<span class="tag">ネコポス可</span></p><h3>煌（きらめき）弦 本麻下地巻 1本入り</h3><p class="price">1,930<small>円（税込）</small></p></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/F-373.html"><div class="img"><img src="https://www.sambu.jp/pic-labo/f-373.jpg" alt="" loading="lazy"></div><p class="code">F-373<span class="tag">ネコポス可</span></p><h3>小唐 特製吟革 握り革</h3><p class="price">1,320<small>円（税込）</small></p></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/F-393.html"><div class="img"><img src="https://www.sambu.jp/pic-labo/f-393.jpg" alt="" loading="lazy"></div><p class="code">F-393<span class="tag">ネコポス可</span></p><h3>吟革 美握り革</h3><p class="price">2,200<small>円（税込）</small></p></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/C-178.html"><div class="img"><img src="https://www.sambu.jp/pic-labo/c-178_1.jpg" alt="" loading="lazy"></div><p class="code">C-178<span class="tag">ネコポス可</span></p><h3>籐製 染色弦巻</h3><p class="price">4,400<small>円（税込）</small></p></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/A-179.html"><div class="img"><img src="https://www.sambu.jp/pic-labo/a-179.jpg" alt="" loading="lazy"></div><p class="code">A-179</p><h3>瑞雪（ずいせつ）並寸</h3><p class="price">91,300<small>円（税込）</small></p></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/D-1661.html"><div class="img"><img src="https://www.sambu.jp/pic-labo/D-1661-1.jpg" alt="" loading="lazy"></div><p class="code">D-1661</p><h3>ハヤブサカーボン 黒手羽 80-25 6本組</h3><p class="price">56,700<small>円（税込）</small></p></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/I-015.html"><div class="img"><img src="https://image1.shopserve.jp/sambu.jp/pic-labo/i-015-1s.jpg" alt="" loading="lazy"></div><p class="code">I-015</p><h3>小型巻藁</h3><p class="price">28,800<small>円（税込）</small></p></a></li>
+      <li><a href="https://www.sambu.jp/SHOP/J-017.html"><div class="img"><img src="https://www.sambu.jp/pic-labo/j-017.jpg" alt="" loading="lazy"></div><p class="code">J-017<span class="tag">ネコポス可</span></p><h3>三ツ下カケ 手首長め 白</h3><p class="price">360<small>円（税込）</small></p></a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 大会出店 -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <p class="sec__en">EVENT</p>
+        <h2 class="sec__title">大会出店のご案内</h2>
+        <p class="sec__desc">会場で実際に道具を手に取ってお選びいただけます。</p>
+      </div>
+    </div>
+    <ul class="event__grid">
+      <li><p class="event__date">11.3<small>火・祝</small></p><p class="event__name">明治神宮奉納全国弓道大会</p><p class="event__place">明治神宮至誠館弓道場</p></li>
+      <li><p class="event__date">11.7<small>土</small></p><p class="event__name">千葉県高校弓道新人大会（男子）</p><p class="event__place">千葉県総合スポーツセンター弓道場</p></li>
+      <li><p class="event__date">11.8<small>日</small></p><p class="event__name">千葉県高校弓道新人大会（女子）</p><p class="event__place">千葉県総合スポーツセンター弓道場</p></li>
+    </ul>
+    <p class="event__note">※雨天の場合は中止になることがございます。</p>
+  </div>
+</section>
+
+<!-- 読みもの -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <p class="sec__en">READING</p>
+        <h2 class="sec__title">読みもの</h2>
+      </div>
+    </div>
+    <div class="read__grid">
+      <a href="#"><span class="kind">特集</span><h3>弓道のある暮らし</h3><p>稽古のある毎日を、少し豊かにしてくれる道具の話。</p></a>
+      <a href="#"><span class="kind">特集</span><h3>世界に広がる弓道</h3><p>海外で弓を引く、各国の弓道クラブをご紹介します。</p></a>
+      <a href="https://www.sambu.jp/hpgen/HPB/entries/32.html"><span class="kind">ご案内</span><h3>よくあるご質問</h3><p>サイズの選び方、お届け、返品について。</p></a>
+      <a href="https://www.sambu.jp/hpgen/HPB/entries/13.html"><span class="kind">採用情報</span><h3>スタッフ募集</h3><p>弓道経験者のスタッフを募集しています。</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- 店舗・お問い合わせ -->
+<section class="sec shop">
+  <div class="wrap shop__in">
+    <div class="shop__box">
+      <p class="sec__en">SHOP</p>
+      <h2 class="sec__title">山武弓具店について</h2>
+      <p class="sec__desc">全日本弓道具協会会員。千葉県山武市の実店舗でも、道具をご覧いただけます。</p>
+      <dl class="shop__table">
+        <div><dt>所在地</dt><dd>〒289-1214 千葉県山武市森1298</dd></div>
+        <div><dt>通信販売</dt><dd>10:00〜17:00<br>定休日：水・日・祝</dd></div>
+        <div><dt>実店舗</dt><dd>10:00〜12:00／14:00〜17:00<br>定休日：火・水・祝</dd></div>
+      </dl>
+    </div>
+    <div class="shop__box">
+      <p class="sec__en">CONTACT</p>
+      <h2 class="sec__title">お問い合わせ</h2>
+      <p class="sec__desc">道具選びのご相談・修理・大会景品のお見積りもお気軽に。</p>
+      <div class="shop__tel">
+        <p class="label">お電話（受付 10:00〜17:00）</p>
+        <a class="num" href="tel:0475880005">0475-88-0005</a>
+      </div>
+      <div class="shop__sub">
+        <p><span>FAX</span>0475-88-1197（24時間受付）</p>
+        <p><span>メール</span><a href="mailto:yumi@sambu.jp">yumi@sambu.jp</a>（24時間受付）</p>
+      </div>
+      <a class="btn btn--ai" href="https://www.sambu.jp/FORM/contact.cgi">お問い合わせフォーム</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__in">
+      <p class="footer__copy">良質な弓道具との出会いを</p>
+      <nav class="footer__links" aria-label="ご利用案内">
+        <a href="https://www.sambu.jp/hpgen/HPB/shop/shoppinguide.html">お買い物ガイド</a>
+        <a href="https://www.sambu.jp/hpgen/HPB/shop/shoppinguide.html">配送料・お届け</a>
+        <a href="https://www.sambu.jp/hpgen/HPB/shop/shoppinguide.html">お支払い方法</a>
+        <a href="https://www.sambu.jp/hpgen/HPB/shop/shoppinguide.html">返品・交換</a>
+        <a href="https://www.sambu.jp/hpgen/HPB/shop/shoppinguide.html">会社概要</a>
+        <a href="https://www.sambu.jp/hpgen/HPB/shop/shoppinguide.html">特定商取引法に関する表示</a>
+        <a href="https://www.sambu.jp/hpgen/HPB/shop/shoppinguide.html">個人情報の取り扱い</a>
+        <a href="https://www.sambu.jp/CART/newmem.php">新規会員登録</a>
+        <a href="https://www.sambu.jp/FORM/contact.cgi">お問い合わせ</a>
+      </nav>
+    </div>
+    <small>&copy; 山武弓具店 Sambu Kyugu Equipment</small>
+  </div>
+</footer>
+
+<script src="top.js"></script>
+</body>
+</html>

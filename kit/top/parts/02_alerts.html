@@ -1,0 +1,34 @@
+<!-- ================================================================
+  臨時のお知らせ（長期休業・悪天候による配送遅延など）
+  ・出すとき：<aside> の hidden を消し、見出し・本文・リンク先を書き換える
+  ・消すとき：hidden を付ける。data-until="YYYY-MM-DD" に最終日を入れると、その翌日から自動で非表示
+  ・種類：休業は class="alert"、配送遅延は class="alert alert--delay"
+  ・全ページに出すため、共通ヘッダーのカテゴリーメニューの直下に置いてください
+  ・通販の定休日（水・日・祝）を避けた発送日を書くよう注意
+================================================================= -->
+<div class="alerts">
+  <aside class="alert" data-until="2027-01-05" aria-label="重要なお知らせ">
+    <div class="wrap alert__in">
+      <p class="alert__label"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 6.5v7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.3" fill="currentColor"/></svg>年末年始休業のお知らせ</p>
+      <p class="alert__text"><b>12月28日（月）〜1月5日（火）</b>は休業いたします。休業中のご注文は、1月7日（木）より順次発送いたします。</p>
+      <a class="alert__more" href="https://www.sambu.jp/hpgen/HPB/entries/31.html">詳しく見る</a>
+    </div>
+  </aside>
+  <aside class="alert alert--delay" data-until="2026-10-10" aria-label="配送のお知らせ" hidden>
+    <div class="wrap alert__in">
+      <p class="alert__label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6h12v10H2zM14 10h4.5L22 13.5V16h-8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="6" cy="17.5" r="1.8" fill="currentColor"/><circle cx="18" cy="17.5" r="1.8" fill="currentColor"/></svg>配送遅延のお知らせ</p>
+      <p class="alert__text">台風の影響により、<b>九州・沖縄方面</b>へのお届けに遅れが生じております。ご迷惑をおかけし申し訳ございません。</p>
+      <a class="alert__more" href="https://www.sambu.jp/hpgen/HPB/entries/26.html">詳しく見る</a>
+    </div>
+  </aside>
+</div>
+<script>
+(function(){
+  var today=new Date(); today.setHours(0,0,0,0);
+  var list=document.querySelectorAll('.alert[data-until]');
+  for(var i=0;i<list.length;i++){
+    var p=list[i].getAttribute('data-until').split('-');
+    if(today>new Date(+p[0],+p[1]-1,+p[2])){list[i].hidden=true}
+  }
+})();
+</script>
