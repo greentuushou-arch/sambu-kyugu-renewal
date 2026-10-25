@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>商品一覧ページ 見やすさ改善のご提案｜山武弓具店</title>
+<style>
+:root{--sumi:#1d1b18;--soft:#4a453e;--kinari:#f4efe4;--paper:#fbf8f1;--shu:#b3241c;--line:#d9d1c1}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Noto Sans JP","Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;font-size:15px;line-height:1.9;color:var(--sumi);background:var(--paper)}
+.page{max-width:900px;margin:0 auto;padding:48px 32px 64px}
+header{border-bottom:2px solid var(--sumi);padding-bottom:20px;margin-bottom:36px}
+.kicker{font-size:13px;color:var(--shu);font-weight:700;letter-spacing:.08em}
+h1{font-size:28px;line-height:1.5;margin-top:6px}
+.meta{font-size:13px;color:var(--soft);margin-top:8px}
+h2{font-size:20px;margin:44px 0 14px;padding-left:12px;border-left:4px solid var(--shu);line-height:1.5}
+h3{font-size:16px;margin:22px 0 6px}
+p+p{margin-top:8px}
+.lead{font-size:16px}
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px;background:#fff}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:var(--kinari);font-weight:700;white-space:nowrap}
+ol,ul{padding-left:1.4em}
+li+li{margin-top:6px}
+code{font-family:Consolas,"Courier New",monospace;font-size:13px;background:var(--kinari);padding:1px 6px;border-radius:3px}
+.box{background:#fff;border:1px solid var(--line);border-radius:6px;padding:18px 20px;margin-top:12px}
+.box--ask{border-color:var(--shu)}
+.box--ask h3{margin-top:0;color:var(--shu)}
+.figure{margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:10px}
+.figure img{width:100%;height:auto;display:block}
+.figure p{font-size:13px;color:var(--soft);margin-top:6px}
+.tree{font-family:Consolas,"Courier New",monospace;font-size:13px;line-height:1.7;background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px 18px;white-space:pre}
+.note{font-size:13px;color:var(--soft)}
+@media print{
+  body{background:#fff;font-size:12.5px}
+  .page{padding:0;max-width:none}
+  h2{break-after:avoid}
+  .figure,.box,table{break-inside:avoid}
+  .break{break-before:page}
+  h2{margin:26px 0 10px}
+  .box{padding:12px 16px;margin-top:8px}
+  .figure--sp{max-width:430px!important}
+}
+@page{size:A4;margin:16mm 14mm}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <p class="kicker">山武弓具店さま　ご提案資料</p>
+  <h1>商品一覧ページ（PC・スマホ）見やすさ改善のご提案</h1>
+  <p class="meta">対象：カテゴリ内・検索結果の商品一覧ページ／作成：GREEN通商</p>
+</header>
+
+<h2>1. 何が変わるか</h2>
+<p class="lead">ご要望の3点は、今のショップサーブのまま、CSSと短いJavaScriptを追加するだけで実現できます。商品データやページの仕組みは変更しません。</p>
+<table>
+  <tr><th>ご要望</th><th>PC</th><th>スマホ</th></tr>
+  <tr><td>商品名の文字数をそろえ「…」で省略</td><td colspan="2">商品名を<b>2行</b>で表示し、超えた分を「…」で省略（理由は「4. ご相談したいこと」参照）</td></tr>
+  <tr><td>画像の高さをそろえる</td><td colspan="2">すべての画像を<b>正方形の枠</b>にそろえる。縦長の画像も切らずに枠の中に収める</td></tr>
+  <tr><td>画像を大きくする</td><td>4列 → <b>3列</b>。画像は約130px → <b>約235px</b></td><td>1列（画像は左に小さく） → <b>2列</b>。画像は約100px → <b>約170px（画面の半分）</b></td></tr>
+</table>
+<p class="note" style="margin-top:8px">※大きく表示してもぼやけないよう、一覧用の縮小画像（PC 120px／スマホ 180px）を、すでにサーバーにある元画像（1500px）に差し替えます。画面に近づいてから読み込むので、表示の速さへの影響は抑えています。</p>
+
+<h2 class="break">2. 変更前・変更後</h2>
+<h3>PC（例：弓カテゴリー）</h3>
+<div class="figure"><img src="images/compare_pc.png" alt="PC版 商品一覧の変更前と変更後"><p>左：いま／右：CSS適用後。実際のページにCSSを当てて表示を確認しています。</p></div>
+
+<h3 class="break">スマホ（例：弓カテゴリー）</h3>
+<div class="figure figure--sp" style="max-width:560px"><img src="images/compare_sp.png" alt="スマホ版 商品一覧の変更前と変更後"><p>左：いま／右：CSS適用後。PICK UPなどのタグは、画像の中の文字を隠さないよう画像の下に移しています。</p></div>
+
+<h2 class="break">3. 同梱ファイルと設置方法</h2>
+<div class="tree">list-kit/
+├ README.html / README.pdf … この資料
+├ pc/
+│  ├ list.css      … PC版 一覧のデザイン（CSS）
+│  └ list.js       … PC版 画像を元画像に差し替え（JavaScript）
+├ sp/
+│  ├ list-sp.css   … スマホ版 一覧のデザイン（CSS）
+│  └ list-sp.js    … スマホ版 画像を元画像に差し替え（JavaScript）
+└ images/
+   ├ compare_pc.png … PC版 変更前後の比較
+   └ compare_sp.png … スマホ版 変更前後の比較</div>
+
+<h3>設置の手順</h3>
+<table>
+  <tr><th></th><th>CSS</th><th>JavaScript</th></tr>
+  <tr><th>PC</th><td><code>pc/list.css</code> の中身を、PC版の一覧ページで読み込まれている店舗CSS（現在は <code>/css/layout.css</code>）の最後に追記</td><td><code>pc/list.js</code> を、PC版の共通部分（ヘッダーまたはフッター）に <code>&lt;script&gt;</code> で読み込み</td></tr>
+  <tr><th>スマホ</th><td><code>sp/list-sp.css</code> の中身を、スマホ版の一覧ページで読み込まれている店舗CSS（現在は <code>/css/accordion.css</code>）の最後に追記、またはスマホ版の共通部分に追加</td><td><code>sp/list-sp.js</code> を、スマホ版の共通部分（ヘッダーまたはフッター）に <code>&lt;script&gt;</code> で読み込み</td></tr>
+</table>
+<ul style="margin-top:12px">
+  <li>CSS・JavaScriptを書ける場所は、ショップサーブの管理画面（デザイン設定・共通パーツ等）で最終確認のうえ設置します。上の店舗CSSは、現在のページが読み込んでいるファイルから調べたものです。</li>
+  <li>このCSSは商品一覧の部分（PC：<code>table.itemList</code>／スマホ：<code>ul.itemlist</code>）にだけ効くように書いています。カテゴリ内・検索結果の両方に反映され、それ以外のページの見た目は変わりません。</li>
+  <li><b>元に戻すとき</b>は、追記したCSSとJavaScriptを削除するだけで、今の表示に戻ります。</li>
+  <li>スマホ版は、一覧の表示切り替えボタンのうち、現在の標準表示（リスト表示）を2列にします。</li>
+</ul>
+
+<h2 class="break">4. ご相談したいこと</h2>
+
+<div class="box box--ask">
+  <h3>① 「30文字で…」ではなく「2行で…」をおすすめします</h3>
+  <p>CSSで省略できるのは<b>行数単位</b>です。文字数で切るにはJavaScriptが必要で、全角と半角（英数字・記号）が混ざると見た目の長さがそろいません。</p>
+  <p>2行で省略すると、PCは1行あたり約16文字×2行で、ご希望の30文字前後になります。スマホは画面が狭いため、1行あたり約13文字×2行です。</p>
+</div>
+
+<div class="box box--ask">
+  <h3>② 商品番号が隠れてしまう点</h3>
+  <p>今の商品名は、<br>「ミヤタ 別作AC 節付塗弓風 … 【代金引換で送料無料！】 <b>A-228</b> 弓道 弓具 弓 海外発送 山武弓具店」<br>のように、商品番号や検索用のキーワードが後ろに付いています。2行で省略すると、<b>商品番号が見えなくなります</b>。</p>
+  <p>英語版（Shopify）のように <b>【A-228】を先頭に移す</b>と解決します。<br>例：「【A-228】ミヤタ 別作AC 節付塗弓風 うるみ色 二寸伸 在庫品」</p>
+  <p>ただし、検索用のキーワード（「弓道 弓具 弓 海外発送 山武弓具店」など）を商品名から外すかどうかは、Googleなどの検索順位への影響もあるため、あわせてご検討ください。</p>
+</div>
+
+<div class="box box--ask">
+  <h3>③ スマホ版では一覧のキャッチコピーを非表示にしています</h3>
+  <p>2列にすると1商品あたりの幅が狭くなるため、一覧ではキャッチコピー（例：「内竹・外竹ともにカーボンファイバーFRPを使用した上級モデルです。」）を表示しないようにしています。商品ページには今まで通り表示されます。一覧でも表示したい場合は調整できます。</p>
+</div>
+
+<div class="box">
+  <h3 style="margin-top:0">良くなる点：画像の中の文字が読める</h3>
+  <p>画像が大きくなったことで、「受注生産品」「即納品」「二寸伸」など、<b>画像の中に入れている文字がはっきり読める</b>ようになります。商品写真の作り方は今のままで効果が出ます。</p>
+</div>
+
+<h2>5. 確認について</h2>
+<ul>
+  <li>現在の実際の一覧ページ（PC・スマホ）にこのCSSを当てて、表示を確認しています（Chrome / Edge系ブラウザ、スマホは画面幅375pxで確認）。</li>
+  <li>本番に設置したあと、iPhone（Safari）とAndroid（Chrome）の実機で最終確認をおすすめします。</li>
+</ul>
+
+</div>
+</body>
+</html>

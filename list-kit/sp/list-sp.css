@@ -1,0 +1,34 @@
+/* ==========================================================
+   山武弓具店 商品一覧（スマホ版）改善CSS
+   対象：ショップサーブ スマホ版 商品一覧（/smp/list.php の ul.itemlist）
+   ・1列の横並びリストを、2列のグリッドにする
+   ・画像を正方形の枠にそろえ、画面幅いっぱいに大きく表示（縦長画像も切らずに収める）
+   ・商品名は2行で「…」省略
+   ・キャッチコピー（tagline）は一覧では非表示（商品ページでは表示されます）
+   ========================================================== */
+
+/* 1列リスト → 2列グリッド */
+ul.itemlist{box-sizing:border-box;width:auto!important;max-width:100%;display:grid!important;grid-template-columns:1fr 1fr;gap:28px 12px;padding:16px 12px 24px!important;margin:0!important;list-style:none}
+ul.itemlist > li{min-width:0;display:block!important;float:none!important;width:auto!important;margin:0!important;padding:0!important;border:0!important;background:none!important}
+ul.itemlist > li > a{display:flex!important;flex-direction:column;position:relative;padding:0!important;background:none!important;text-decoration:none}
+ul.itemlist > li > a::after{display:none!important}
+
+/* 画像：正方形の枠にそろえる */
+ul.itemlist .li_l{float:none!important;width:100%!important;margin:0!important;aspect-ratio:1/1;background:#fff;border:1px solid #e6e1d6;overflow:hidden}
+ul.itemlist .li_l img{float:none!important;width:100%!important;height:100%!important;max-width:none!important;margin:0!important;border:0!important;object-fit:contain}
+ul.itemlist .li_r{float:none!important;width:auto!important;margin:6px 0 0!important;padding:0!important}
+
+/* PICK UP 等のタグ：画像の下・商品名の上に置く（画像内の文字を隠さないため） */
+ul.itemlist .li_l{order:1}
+ul.itemlist .tag{order:2;position:static!important;margin:8px 0 0!important;height:20px;overflow:hidden} /* タグが無い商品も同じ高さにして商品名の位置をそろえる */
+ul.itemlist .tag span{display:inline-block;font-size:10px;line-height:18px;padding:0 6px;margin:0 4px 0 0}
+ul.itemlist .li_r{order:3}
+
+/* 商品名：2行で省略 */
+ul.itemlist .mp_item_item1{display:-webkit-box!important;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;font-size:13px!important;line-height:1.6!important;font-weight:500;color:#1d1b18!important}
+
+/* キャッチコピーは一覧では隠す（情報が多すぎて名前と価格が埋もれるため） */
+ul.itemlist .mp_item_item4{display:none!important}
+
+/* 価格 */
+ul.itemlist .mp_item_item5{margin-top:4px!important;font-size:14px!important;font-weight:700;color:#b3241c!important;text-align:left!important}

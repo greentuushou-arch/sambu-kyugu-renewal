@@ -1,0 +1,34 @@
+/* ==========================================================
+   山武弓具店 商品一覧（PC）改善CSS 試作
+   対象：ショップサーブ PC版 商品一覧「レイアウト1」（table.itemList）
+   ・表組みをCSSグリッドに変えて3列・大きい画像にする
+   ・画像は正方形の枠にそろえ、縦長画像も切らずに収める
+   ・商品名は2行で「…」省略
+   ========================================================== */
+
+/* 表組み → 3列グリッド */
+table.itemList,
+table.itemList > tbody{display:block;width:100%!important}
+table.itemList > tbody{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 24px;padding:8px 0 24px}
+table.itemList > tbody > tr{display:contents}
+table.itemList > tbody > tr > td{display:block;width:auto!important;padding:0!important;vertical-align:top}
+table.itemList .layout1,
+table.itemList .layout1 table,
+table.itemList .layout1 tbody,
+table.itemList .layout1 tr,
+table.itemList .layout1 td{display:block;width:100%!important;padding:0!important}
+
+/* 画像：正方形の枠にそろえる */
+table.itemList .item a{display:block;aspect-ratio:1/1;background:#fff;border:1px solid #e6e1d6;overflow:hidden}
+table.itemList .item img{width:100%!important;height:100%!important;object-fit:contain;transition:transform .4s}
+table.itemList .item a:hover img{transform:scale(1.04)}
+
+/* 商品名：2行で省略 */
+table.itemList h2.goods{margin:14px 0 0;padding:0;border:0;background:none;font-size:15px;font-weight:500;line-height:1.6}
+table.itemList h2.goods a{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;color:#1d1b18;text-decoration:none}
+table.itemList h2.goods a:hover{color:#b3241c;text-decoration:underline}
+table.itemList h2.goods br{display:none}
+table.itemList h2.goods img{display:block;margin-top:6px}
+
+/* 価格 */
+table.itemList .price{margin-top:6px;font-size:18px;font-weight:700;color:#b3241c}

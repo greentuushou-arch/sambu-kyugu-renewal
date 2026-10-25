@@ -6,3 +6,9 @@ list-custom/*.html
 list-custom/*.json
 list-custom/*.png
 !list-custom/compare.png
+
+# 先方渡し用zip（中身は list-kit/ にある）
+*.zip
+list-custom/sp/*.html
+list-custom/sp/*.png
+list-custom/sp/*.txt
